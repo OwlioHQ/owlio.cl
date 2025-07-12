@@ -4,5 +4,5 @@ export default ariel({
 	type: 'app',
 	svelte: true,
 	typescript: true,
-	tailwindcss: true
+	tailwindcss: true,
 });
