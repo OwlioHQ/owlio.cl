@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@ariel-salgado/eslint-config':
-        specifier: 0.0.6-beta.4
-        version: 0.0.6-beta.4(eslint-plugin-better-tailwindcss@3.5.2(eslint@9.31.0(jiti@2.4.2))(tailwindcss@4.1.11))(eslint-plugin-svelte@3.10.1(eslint@9.31.0(jiti@2.4.2))(svelte@5.35.6))(eslint@9.31.0(jiti@2.4.2))(svelte-eslint-parser@1.2.0(svelte@5.35.6))(typescript@5.8.3)(vitest@3.2.4)
+        specifier: 0.0.6
+        version: 0.0.6(eslint-plugin-better-tailwindcss@3.6.0(eslint@9.31.0(jiti@2.4.2))(tailwindcss@4.1.11))(eslint-plugin-svelte@3.10.1(eslint@9.31.0(jiti@2.4.2))(svelte@5.35.6))(eslint@9.31.0(jiti@2.4.2))(svelte-eslint-parser@1.2.0(svelte@5.35.6))(typescript@5.8.3)(vitest@3.2.4)
       '@eslint/compat':
         specifier: ^1.3.1
         version: 1.3.1(eslint@9.31.0(jiti@2.4.2))
@@ -45,8 +45,8 @@ importers:
         specifier: ^9.31.0
         version: 9.31.0(jiti@2.4.2)
       eslint-plugin-better-tailwindcss:
-        specifier: ^3.5.2
-        version: 3.5.2(eslint@9.31.0(jiti@2.4.2))(tailwindcss@4.1.11)
+        specifier: ^3.6.0
+        version: 3.6.0(eslint@9.31.0(jiti@2.4.2))(tailwindcss@4.1.11)
       eslint-plugin-svelte:
         specifier: ^3.10.1
         version: 3.10.1(eslint@9.31.0(jiti@2.4.2))(svelte@5.35.6)
@@ -105,8 +105,8 @@ packages:
   '@antfu/install-pkg@1.1.0':
     resolution: {integrity: sha512-MGQsmw10ZyI+EJo45CdSER4zEb+p31LpDAFp2Z3gkSd1yqVZGi0Ebx++YTEMonJy4oChEMLsxZ64j8FH6sSqtQ==}
 
-  '@ariel-salgado/eslint-config@0.0.6-beta.4':
-    resolution: {integrity: sha512-EjTjbyHLdlz+OLiH6uz8m6tpf2EtyRiZ61aV7TAa8+Up3B2p2Hic1nc3hQ4wSDTZ9wnfgYNIatfP9dqv95a8Yg==}
+  '@ariel-salgado/eslint-config@0.0.6':
+    resolution: {integrity: sha512-NgJJohl1D8q/RQxsFUAQ1YVU2S+HVqnA3dQF4h3vYFW3fLWPtIF+MgiYeP0xvAhmyTrBe555AICqFXTjz4nMFw==}
     peerDependencies:
       eslint: ^9.30.0
       eslint-plugin-better-tailwindcss: ^3.5.2
@@ -1126,8 +1126,8 @@ packages:
     peerDependencies:
       eslint: '*'
 
-  eslint-plugin-better-tailwindcss@3.5.2:
-    resolution: {integrity: sha512-OXNp7Gu4IcEvbYz10XaTq4d6Eieq56O0h/e1rOokXLPh05KgERkXUiF5X5V1S/+KOhUZjaX7v3mygcwlp3U/ZA==}
+  eslint-plugin-better-tailwindcss@3.6.0:
+    resolution: {integrity: sha512-ndgbUTGmcUVdnbFxIXIXvCMZqBuZEEBDj54jqmNKoRHLizC6sjQnRi0l88jYo2v9+fWcYZRPmzCoOm3FUTQhiQ==}
     engines: {node: ^20.11.0 || >=21.2.0}
     peerDependencies:
       eslint: ^7.0.0 || ^8.0.0 || ^9.0.0
@@ -2459,7 +2459,7 @@ snapshots:
       package-manager-detector: 1.3.0
       tinyexec: 1.0.1
 
-  '@ariel-salgado/eslint-config@0.0.6-beta.4(eslint-plugin-better-tailwindcss@3.5.2(eslint@9.31.0(jiti@2.4.2))(tailwindcss@4.1.11))(eslint-plugin-svelte@3.10.1(eslint@9.31.0(jiti@2.4.2))(svelte@5.35.6))(eslint@9.31.0(jiti@2.4.2))(svelte-eslint-parser@1.2.0(svelte@5.35.6))(typescript@5.8.3)(vitest@3.2.4)':
+  '@ariel-salgado/eslint-config@0.0.6(eslint-plugin-better-tailwindcss@3.6.0(eslint@9.31.0(jiti@2.4.2))(tailwindcss@4.1.11))(eslint-plugin-svelte@3.10.1(eslint@9.31.0(jiti@2.4.2))(svelte@5.35.6))(eslint@9.31.0(jiti@2.4.2))(svelte-eslint-parser@1.2.0(svelte@5.35.6))(typescript@5.8.3)(vitest@3.2.4)':
     dependencies:
       '@antfu/install-pkg': 1.1.0
       '@clack/prompts': 0.11.0
@@ -2493,7 +2493,7 @@ snapshots:
       toml-eslint-parser: 0.10.0
       yaml-eslint-parser: 1.3.0
     optionalDependencies:
-      eslint-plugin-better-tailwindcss: 3.5.2(eslint@9.31.0(jiti@2.4.2))(tailwindcss@4.1.11)
+      eslint-plugin-better-tailwindcss: 3.6.0(eslint@9.31.0(jiti@2.4.2))(tailwindcss@4.1.11)
       eslint-plugin-svelte: 3.10.1(eslint@9.31.0(jiti@2.4.2))(svelte@5.35.6)
       svelte-eslint-parser: 1.2.0(svelte@5.35.6)
     transitivePeerDependencies:
@@ -3405,7 +3405,7 @@ snapshots:
     dependencies:
       eslint: 9.31.0(jiti@2.4.2)
 
-  eslint-plugin-better-tailwindcss@3.5.2(eslint@9.31.0(jiti@2.4.2))(tailwindcss@4.1.11):
+  eslint-plugin-better-tailwindcss@3.6.0(eslint@9.31.0(jiti@2.4.2))(tailwindcss@4.1.11):
     dependencies:
       '@eslint/css-tree': 3.6.1
       enhanced-resolve: 5.18.2
