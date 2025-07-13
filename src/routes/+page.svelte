@@ -1,7 +1,8 @@
 <script lang='ts'>
-    import { Hero } from '$lib/components/ui/blocks';
+    import { Hero, Features } from '$lib/components/ui/blocks';
 </script>
 
 <div>
-    <Hero />
+    <Hero id='home' />
+    <Features id='features' />
 </div>
