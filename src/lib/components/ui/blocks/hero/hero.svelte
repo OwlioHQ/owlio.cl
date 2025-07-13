@@ -1,7 +1,14 @@
 <script lang='ts'>
+    import type { HTMLAttributes } from 'svelte/elements';
+
+    import { cn } from '$lib/utils';
+
+    interface Props extends HTMLAttributes<HTMLElement> {};
+
+    let { class: class_name, ...rest }: Props = $props();
 </script>
 
-<section class='size-full'>
+<section class={cn('size-full', class_name)} {...rest}>
     <div class='grid min-h-200 grid-cols-2'>
         <div>
             <h1 class='text-3xl font-semibold'>
@@ -14,6 +21,6 @@
                 blanditiis minima fugit cumque minus!</span
             >
         </div>
-        <div class='bg-separator-light'></div>
+        <div class='bg-separator'></div>
     </div>
 </section>
