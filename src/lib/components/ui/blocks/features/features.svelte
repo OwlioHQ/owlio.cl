@@ -65,7 +65,7 @@
 
                     <div class='w-fit'>
                         <h3 class='pb-2.5 text-xl font-semibold'>{feature.heading}</h3>
-                        <p class='text-sm text-text-secondary'>{feature.description}</p>
+                        <p class='text-base text-text-secondary'>{feature.description}</p>
                     </div>
                 </div>
             {/each}
