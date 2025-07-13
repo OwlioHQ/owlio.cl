@@ -1,19 +1,23 @@
 <script lang='ts'>
     const items = [
         {
-            label: 'inicio',
+            label: 'home',
             href: '#',
+        },
+        {
+            label: 'features',
+            href: '#features',
         },
     ];
 </script>
 
-<header class='sticky top-0 z-50 w-full'>
-    <div class='relative border-b border-b-separator-light px-12'>
-        <nav class='flex h-(--ui-header-height) justify-between'>
+<header class='sticky top-0 z-50 w-full bg-background-primary'>
+    <div class='relative border-b border-b-separator px-[var(--section-padding-x)]'>
+        <nav class='flex h-(--header-height) justify-between'>
             <div class='flex items-center gap-6'>
                 <a class='flex items-center gap-2' href='/'>
-                    <span class='text-lg tracking-widest uppercase'>
-                        <span class='font-semibold'>Rapid</span>flow
+                    <span class='text-xl tracking-widest text-text-secondary uppercase'>
+                        <span class='font-semibold text-text-primary'>Rapid</span>flow
                     </span>
                 </a>
                 <div class='flex items-center'>
@@ -22,10 +26,10 @@
             </div>
 
             <div class='flex items-center'>
-                <ul>
+                <ul class='flex items-center gap-x-4'>
                     {#each items as item (item.label)}
-                        <li>
-                            <a href={item.href}>{item.label}</a>
+                        <li class='text-text-secondary'>
+                            <a clasS='block cursor-pointer p-1' href={item.href}>{item.label}</a>
                         </li>
                     {/each}
                 </ul>
