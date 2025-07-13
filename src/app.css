@@ -1,3 +1,9 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+@theme {
+	--color-separator-light: var(--color-slate-300);
+
+	--ui-header-height: 3rem;
+}
