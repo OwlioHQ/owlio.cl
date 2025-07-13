@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@ariel-salgado/eslint-config':
-        specifier: ^0.0.5
-        version: 0.0.5(eslint-plugin-better-tailwindcss@3.5.2(eslint@9.31.0(jiti@2.4.2))(tailwindcss@4.1.11))(eslint-plugin-svelte@3.10.1(eslint@9.31.0(jiti@2.4.2))(svelte@5.35.6))(eslint@9.31.0(jiti@2.4.2))(svelte-eslint-parser@1.2.0(svelte@5.35.6))(typescript@5.8.3)(vitest@3.2.4)
+        specifier: 0.0.6-beta.4
+        version: 0.0.6-beta.4(eslint-plugin-better-tailwindcss@3.5.2(eslint@9.31.0(jiti@2.4.2))(tailwindcss@4.1.11))(eslint-plugin-svelte@3.10.1(eslint@9.31.0(jiti@2.4.2))(svelte@5.35.6))(eslint@9.31.0(jiti@2.4.2))(svelte-eslint-parser@1.2.0(svelte@5.35.6))(typescript@5.8.3)(vitest@3.2.4)
       '@eslint/compat':
         specifier: ^1.3.1
         version: 1.3.1(eslint@9.31.0(jiti@2.4.2))
@@ -38,6 +38,9 @@ importers:
       '@vitest/browser':
         specifier: ^3.2.4
         version: 3.2.4(playwright@1.54.1)(vite@7.0.4(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0))(vitest@3.2.4)
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       eslint:
         specifier: ^9.31.0
         version: 9.31.0(jiti@2.4.2)
@@ -53,6 +56,9 @@ importers:
       lint-staged:
         specifier: ^16.1.2
         version: 16.1.2
+      phosphor-svelte:
+        specifier: ^3.0.1
+        version: 3.0.1(svelte@5.35.6)(vite@7.0.4(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0))
       playwright:
         specifier: ^1.54.1
         version: 1.54.1
@@ -65,6 +71,9 @@ importers:
       svelte-check:
         specifier: ^4.2.2
         version: 4.2.2(picomatch@4.0.2)(svelte@5.35.6)(typescript@5.8.3)
+      tailwind-merge:
+        specifier: ^3.3.1
+        version: 3.3.1
       tailwindcss:
         specifier: ^4.1.11
         version: 4.1.11
@@ -96,8 +105,8 @@ packages:
   '@antfu/install-pkg@1.1.0':
     resolution: {integrity: sha512-MGQsmw10ZyI+EJo45CdSER4zEb+p31LpDAFp2Z3gkSd1yqVZGi0Ebx++YTEMonJy4oChEMLsxZ64j8FH6sSqtQ==}
 
-  '@ariel-salgado/eslint-config@0.0.5':
-    resolution: {integrity: sha512-lHzlQJLtq3YuXuRproxM24nkLmIUo2UHLtr1tcWADiOV1ZXZmTfVqBXd8w7PH01xx1IpfY4PW1FtLlv+8+VbdQ==}
+  '@ariel-salgado/eslint-config@0.0.6-beta.4':
+    resolution: {integrity: sha512-EjTjbyHLdlz+OLiH6uz8m6tpf2EtyRiZ61aV7TAa8+Up3B2p2Hic1nc3hQ4wSDTZ9wnfgYNIatfP9dqv95a8Yg==}
     peerDependencies:
       eslint: ^9.30.0
       eslint-plugin-better-tailwindcss: ^3.5.2
@@ -1877,6 +1886,15 @@ packages:
     resolution: {integrity: sha512-//nshmD55c46FuFw26xV/xFAaB5HF9Xdap7HJBBnrKdAd6/GxDBaNA1870O79+9ueg61cZLSVc+OaFlfmObYVQ==}
     engines: {node: '>= 14.16'}
 
+  phosphor-svelte@3.0.1:
+    resolution: {integrity: sha512-QuxdzWCBjNZXglk4XpmaKb+JRA6XgKOYWpBY8k82NZwxO5ec7u2iFuueAijKYgj/7hLWHtreAPc2Q5uZFNTRSQ==}
+    peerDependencies:
+      svelte: ^5.0.0 || ^5.0.0-next.96
+      vite: '>=5'
+    peerDependenciesMeta:
+      vite:
+        optional: true
+
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
@@ -2169,6 +2187,9 @@ packages:
     resolution: {integrity: sha512-Tv5IXRHtlb7LanNXjmGg0vu84Iu+/sKDqTLJBO0kP/rggfjJDKnS/HV+e0qn8yIrRByhGg+908rSOxT/7o1diw==}
     engines: {node: '>=18.18'}
 
+  tailwind-merge@3.3.1:
+    resolution: {integrity: sha512-gBXpgUm/3rp1lMZZrM/w7D8GKqshif0zAymAhbCyIt8KMe+0v9DQ7cdYLR4FHH/cKpdTXb+A/tKKU3eolfsI+g==}
+
   tailwindcss@4.1.11:
     resolution: {integrity: sha512-2E9TBm6MDD/xKYe+dvJZAmg3yxIEDNRc0jwlNyDg/4Fil2QcSLjFKGVff0lAf1jjeaArlG/M75Ey/EYr/OJtBA==}
 
@@ -2438,7 +2459,7 @@ snapshots:
       package-manager-detector: 1.3.0
       tinyexec: 1.0.1
 
-  '@ariel-salgado/eslint-config@0.0.5(eslint-plugin-better-tailwindcss@3.5.2(eslint@9.31.0(jiti@2.4.2))(tailwindcss@4.1.11))(eslint-plugin-svelte@3.10.1(eslint@9.31.0(jiti@2.4.2))(svelte@5.35.6))(eslint@9.31.0(jiti@2.4.2))(svelte-eslint-parser@1.2.0(svelte@5.35.6))(typescript@5.8.3)(vitest@3.2.4)':
+  '@ariel-salgado/eslint-config@0.0.6-beta.4(eslint-plugin-better-tailwindcss@3.5.2(eslint@9.31.0(jiti@2.4.2))(tailwindcss@4.1.11))(eslint-plugin-svelte@3.10.1(eslint@9.31.0(jiti@2.4.2))(svelte@5.35.6))(eslint@9.31.0(jiti@2.4.2))(svelte-eslint-parser@1.2.0(svelte@5.35.6))(typescript@5.8.3)(vitest@3.2.4)':
     dependencies:
       '@antfu/install-pkg': 1.1.0
       '@clack/prompts': 0.11.0
@@ -4344,6 +4365,14 @@ snapshots:
 
   pathval@2.0.1: {}
 
+  phosphor-svelte@3.0.1(svelte@5.35.6)(vite@7.0.4(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0)):
+    dependencies:
+      estree-walker: 3.0.3
+      magic-string: 0.30.17
+      svelte: 5.35.6
+    optionalDependencies:
+      vite: 7.0.4(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0)
+
   picocolors@1.1.1: {}
 
   picomatch@2.3.1: {}
@@ -4638,6 +4667,8 @@ snapshots:
       '@pkgr/core': 0.2.7
 
   tailwind-csstree@0.1.1: {}
+
+  tailwind-merge@3.3.1: {}
 
   tailwindcss@4.1.11: {}
 
