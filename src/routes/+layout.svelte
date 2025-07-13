@@ -12,10 +12,10 @@
     const { children }: Props = $props();
 </script>
 
-<div class='grid min-w-88 grid-rows-[auto_1fr_auto]'>
+<div class='grid min-w-88 grid-rows-[auto_1fr_auto] bg-background-primary text-text-primary'>
     <Navbar />
 
-    <main class='relative min-h-[calc(100dvh-var(--ui-header-height))]'>
+    <main class='relative min-h-[calc(100dvh-var(--header-height))]'>
         {@render children()}
     </main>
 </div>
