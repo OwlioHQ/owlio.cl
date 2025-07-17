@@ -4,10 +4,13 @@
 @plugin '@tailwindcss/typography';
 
 @theme {
-	/* fixed spacing */
-	--header-height: 3.75rem;
-	--section-padding-x: 8rem;
+	--hue: 250;
+	--padding: 96rem;
+
+	/* spacing */
+	--header-height: 4rem;
 	--section-padding-y: 8rem;
+	--section-padding-x: max(2rem, calc(calc(100vw - var(--padding))) / 2);
 
 	/* ui elements */
 	--color-separator: var(--color-zinc-200);
@@ -17,6 +20,18 @@
 	--color-text-secondary: var(--color-zinc-600);
 	--color-background-primary: var(--color-zinc-50);
 	--color-background-secondary: var(--color-zinc-100);
+
+	--color-primary-50: oklch(95.88% 0.02 var(--hue));
+	--color-primary-100: oklch(91.75% 0.041 var(--hue));
+	--color-primary-200: oklch(84.15% 0.082 var(--hue));
+	--color-primary-300: oklch(76.12% 0.127 var(--hue));
+	--color-primary-400: oklch(68.02% 0.174 var(--hue));
+	--color-primary-500: oklch(60.56% 0.219 var(--hue));
+	--color-primary-600: oklch(52.44% 0.265 var(--hue));
+	--color-primary-700: oklch(43.42% 0.228 var(--hue));
+	--color-primary-800: oklch(34.2% 0.18 var(--hue));
+	--color-primary-900: oklch(24% 0.125 var(--hue));
+	--color-primary-950: oklch(18.85% 0.1 var(--hue));
 }
 
 html {
