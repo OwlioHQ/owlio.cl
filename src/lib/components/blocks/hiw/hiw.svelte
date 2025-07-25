@@ -2,7 +2,9 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 	import type { Component, ComponentProps } from 'svelte';
 
-	import Sliders from 'phosphor-svelte/lib/Sliders';
+	import NumberOne from 'phosphor-svelte/lib/NumberOne';
+	import NumberTwo from 'phosphor-svelte/lib/NumberTwo';
+	import NumberThree from 'phosphor-svelte/lib/NumberThree';
 
 	import { cn } from '$lib/utils';
 	import { Card } from '$lib/components/ui';
@@ -17,48 +19,39 @@
 
 	const items: CardProps[] = [
 		{
-			image: Sliders,
-			title: 'Lorem ipsum',
+			title: 'Conecta con nosotros',
 			description:
-				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil reprehenderit error aspernatur impedit rem, aliquid deserunt',
+				'Evalúa tu situación en detalle y obtén retroalimentación inmediata sobre tus posibles oportunidades de mejora.',
+			image: NumberOne,
 		},
 		{
-			image: Sliders,
-			title: 'Lorem ipsum',
+			title: 'Propuesta & Desarrollo',
 			description:
-				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil reprehenderit error aspernatur impedit rem, aliquid deserunt',
+				'Desarrollamos una propuesta personalizada que responde a tus objetivos y necesidades. Manteniendote participativo durante cada proceso.',
+			image: NumberTwo,
 		},
 		{
-			image: Sliders,
-			title: 'Lorem ipsum',
+			title: 'Entrega & Acompañamiento',
 			description:
-				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil reprehenderit error aspernatur impedit rem, aliquid deserunt',
-		},
-		{
-			image: Sliders,
-			title: 'Lorem ipsum',
-			description:
-				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil reprehenderit error aspernatur impedit rem, aliquid deserunt',
+				'Finalizado el desarrollo, realizaremos la entrega del producto para ser utilizado por tu empresa y/o clientes.',
+			image: NumberThree,
 		},
 	];
 </script>
 
 <section class={cn('isolate size-full', class_name)} {...rest}>
 	<div
-		class='space-y-12 px-[var(--section-padding-x)] py-[var(--section-padding-y)]'
+		class='space-y-16 px-[var(--section-padding-x)] py-[var(--section-padding-y)]'
 	>
 		<div class='mx-auto max-w-3/5 text-center'>
 			<h2 class='text-5xl leading-loose font-bold text-text-primary'>
-				How it works
+				¿Cómo es trabajar con nosotros?
 			</h2>
 			<p class='text-lg leading-snug text-balance'>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-				reprehenderit error aspernatur impedit rem, aliquid deserunt.
-				Doloribus explicabo sint autem saepe ullam, perspiciatis qui, at
-				necessitatibus ab magnam cupiditate placeat!
+				Trabajamos de la mano contigo en cada etapa del proyecto, asegurando transparencia, comunicación constante y resultados que superen tus expectativas.
 			</p>
 		</div>
-		<div class='relative flex items-center justify-between'>
+		<div class='relative flex items-start justify-between'>
 			{#each items as item}
 				{@const Icon = item.image}
 				<Card
@@ -67,7 +60,7 @@
 					title={item.title}
 				>
 					{#snippet image()}
-						<div class='size-16 rounded-full bg-primary-600 p-4.5'>
+						<div class='size-16 rounded-full bg-primary-600 p-4'>
 							<Icon class='size-full fill-background-primary' />
 						</div>
 					{/snippet}

@@ -3,13 +3,13 @@
 	import type { HTMLAttributes } from 'svelte/elements';
 
 	import Key from 'phosphor-svelte/lib/Key';
-	import Alarm from 'phosphor-svelte/lib/Alarm';
-	import BookOpen from 'phosphor-svelte/lib/BookOpen';
-	import PencilSimpleLine from 'phosphor-svelte/lib/PencilSimpleLine';
-	import ArrowsCounterClockwise from 'phosphor-svelte/lib/ArrowsCounterClockwise';
+	import Code from 'phosphor-svelte/lib/Code';
+	import Alien from 'phosphor-svelte/lib/Alien';
+	import Plugs from 'phosphor-svelte/lib/Plugs';
+	import Robot from 'phosphor-svelte/lib/Robot';
 
 	import { cn } from '$lib/utils';
-	import { FeatureItem } from '$lib/components/ui';
+	import { FeatureItem, LogoSlider } from '$lib/components/ui';
 
 	type FeatureItemProps = ComponentProps<typeof FeatureItem>;
 
@@ -19,54 +19,54 @@
 
 	const features = [
 		{
+			title: 'Integraciones de software',
+			description:
+				'Integramos tus sistemas y aplicaciones para que funcionen sincronizados, facilitando el flujo de datos clave. Nuestras soluciones escalables aumentan la productividad, reducen errores y aceleran la toma de decisiones. (+ 400 apps)',
 			icon: {
-				component: PencilSimpleLine,
+				component: Plugs,
 				background: 'bg-purple-100',
 				stroke: 'fill-purple-700',
 			},
-			title: 'Lorem ipsum',
-			description:
-				'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, earum quidem. Aut itaque nostrum fugiat eveniet beatae odio unde magnam, adipisci saepe voluptatibus. Itaque similique dicta aut? Quia, fuga neque.',
 		},
 		{
+			title: 'Automatización de tareas',
+			description:
+				'Implementamos soluciones que eliminan trabajos manuales repetitivos, reduciendo errores humanos y mejorando los tiempos operativos, permitiendo que tu equipo dedique mayor tiempo a tareas de valor.',
 			icon: {
-				component: BookOpen,
+				component: Robot,
 				background: 'bg-blue-100',
 				stroke: 'fill-blue-700',
 			},
-			title: 'Lorem ipsum',
-			description:
-				'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, earum quidem. Aut itaque nostrum fugiat eveniet beatae odio unde magnam, adipisci saepe voluptatibus. Itaque similique dicta aut? Quia, fuga neque.',
 		},
 		{
+			title: 'Desarrollo de aplicaciones web',
+			description:
+				'Creamos soluciones web a medida que se adaptan a las necesidades específicas de tu negocio, con un diseño intuitivo, alto rendimiento y escalabilidad. Desde sitios corporativos hasta aplicaciones complejas.',
 			icon: {
-				component: ArrowsCounterClockwise,
+				component: Code,
 				background: 'bg-red-100',
 				stroke: 'fill-red-700',
 			},
-			title: 'Lorem ipsum',
-			description:
-				'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, earum quidem. Aut itaque nostrum fugiat eveniet beatae odio unde magnam, adipisci saepe voluptatibus. Itaque similique dicta aut? Quia, fuga neque.',
 		},
 		{
+			title: 'API & Microservicios',
+			description:
+				'Diseñamos arquitecturas modulares que mejoran la lectura, procesamiento y transferencia de datos entre distintos sistemas distribuidos, mejorando la interoperabilidad y escalabilidad entre microservicios.',
 			icon: {
 				component: Key,
 				background: 'bg-orange-100',
 				stroke: 'fill-orange-700',
 			},
-			title: 'Lorem ipsum',
-			description:
-				'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, earum quidem. Aut itaque nostrum fugiat eveniet beatae odio unde magnam, adipisci saepe voluptatibus. Itaque similique dicta aut? Quia, fuga neque.',
 		},
 		{
+			title: 'Análisis de datos & Business intelligence',
+			description:
+				'Ofrecemos soluciones basadas en análisis de datos que transforman tu información en oportunidades. Analizamos KPIs clave para ayudarte a identificar áreas de mejora y potenciar una toma de decisiones más informada.',
 			icon: {
-				component: Alarm,
+				component: Alien,
 				background: 'bg-green-100',
 				stroke: 'fill-green-700',
 			},
-			title: 'Lorem ipsum',
-			description:
-				'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, earum quidem. Aut itaque nostrum fugiat eveniet beatae odio unde magnam, adipisci saepe voluptatibus. Itaque similique dicta aut? Quia, fuga neque.',
 		},
 	] satisfies FeatureItemProps[];
 </script>
@@ -76,25 +76,29 @@
 		<div class='flex flex-col gap-y-20'>
 			<div class='mx-auto w-2/3 text-center'>
 				<h2 class='text-5xl leading-loose font-bold text-text-primary'>
-					Lorem ipsum, dolor sit
+					Nuestros Servicios
 				</h2>
 				<p class='text-lg leading-snug text-balance'>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-					Necessitatibus repellat asperiores aut in quis ipsa ut
-					quibusdam, harum, praesentium, aperiam inventore. Iusto, sed?
-					Harum, nam quod perferendis nihil minus quia.
+					Desarrollamos plataformas y herramientas a medida, basadas
+					en los datos relevantes de tu empresa para potenciar tu
+					marketing, mejorar tus ventas e impulsa el crecimiento de tu
+					negocio.
 				</p>
 			</div>
 			<div
-				class='grid grid-cols-2 place-content-center items-center gap-24'
+				class='grid grid-cols-2 place-content-center items-center gap-20'
 			>
 				<div class='space-y-10'>
 					{#each features as feature (feature.icon)}
 						<FeatureItem {...feature} />
 					{/each}
 				</div>
-				<div class='aspect-square rounded-2xl bg-separator'>
-					<!-- -->
+
+				<!-- Logos -->
+				<div
+					class='aspect-square overflow-hidden rounded-2xl border border-separator'
+				>
+					<LogoSlider />
 				</div>
 			</div>
 		</div>

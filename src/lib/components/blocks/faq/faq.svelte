@@ -1,13 +1,10 @@
 <script lang='ts'>
-	import type { ComponentProps } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	import Question from 'phosphor-svelte/lib/Question';
+	import FaqGif from '$lib/assets/images/faq.gif';
 
 	import { cn } from '$lib/utils';
-	import { FeatureItem } from '$lib/components/ui';
-
-	type FeatureItemProps = ComponentProps<typeof FeatureItem>;
+	import { Accordion, AccordionGroup } from '$lib/components/ui';
 
 	interface Props extends HTMLAttributes<HTMLElement> {}
 
@@ -15,33 +12,91 @@
 
 	const items = [
 		{
-			icon: Question,
-			title: 'Lorem ipsum',
+			title: '¿Cómo integramos con tus sistemas existentes?',
 			description:
-				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quis esse aliquid officia rerum sint, officiis veritatis laudantium deleniti quos aspernatur. Debitis natus ipsa eveniet pariatur enim ea obcaecati voluptatum?',
+				'Adaptamos nuestras soluciones a tu infraestructura actual mediante aplicaciones y APIs. No necesitas reescribir ni migrar sistemas; trabajamos sobre lo que ya tienes.',
 		},
 		{
-			icon: Question,
-			title: 'Lorem ipsum',
+			title: '¿En cuánto tiempo se ven los primeros resultados operativos?',
 			description:
-				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quis esse aliquid officia rerum sint, officiis veritatis laudantium deleniti quos aspernatur. Debitis natus ipsa eveniet pariatur enim ea obcaecati voluptatum?',
+				'Los primeros impactos son visibles en cuestión de días gracias a nuestra implementación progresiva. El tiempo exacto varía según la complejidad de cada caso, pero diseñamos nuestras soluciones para generar valor desde las primeras etapas del proyecto.',
 		},
 		{
-			icon: Question,
-			title: 'Lorem ipsum',
+			title: '¿Cómo logramos aumentar la productividad mediante automatización?',
 			description:
-				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quis esse aliquid officia rerum sint, officiis veritatis laudantium deleniti quos aspernatur. Debitis natus ipsa eveniet pariatur enim ea obcaecati voluptatum?',
+				'Analizamos tus operaciones o datos para identificar tareas repetitivas y cuellos de botella críticos. Luego desarrollamos soluciones personalizadas que eliminan el trabajo manual y aceleran tus procesos clave.',
 		},
 		{
-			icon: Question,
-			title: 'Lorem ipsum',
+			title: '¿Qué nos diferencia de otras empresas?',
 			description:
-				'Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores quis esse aliquid officia rerum sint, officiis veritatis laudantium deleniti quos aspernatur. Debitis natus ipsa eveniet pariatur enim ea obcaecati voluptatum?',
+				'Nuestro enfoque técnico nos permite crear soluciones precisas y a medida para cada desafío específico, a diferencia de las soluciones genéricas del mercado.',
 		},
-	] satisfies FeatureItemProps[];
+		{
+			title: '¿Cómo transformamos tus datos en insights accionables?',
+			description:
+				'Diseñamos dashboards interactivos que van más allá de la visualización básica: convertimos tus métricas críticas en herramientas de toma de decisiones. Nuestras soluciones de visualización se integran directamente con todas tus fuentes de datos.',
+		},
+		{
+			title: '¿Cómo aseguramos calidad y seguridad en el código?',
+			description:
+				'Aplicamos revisiones estrictas, CI/CD automatizado, linters, pruebas unitarias y escaneos de seguridad en cada etapa del desarrollo. Todo el código sigue estándares robustos y auditables.',
+		},
+	];
+
 </script>
 
 <section class={cn('isolate size-full', class_name)} {...rest}>
+	<div
+		class='grid items-center justify-center gap-y-20 px-[var(--section-padding-x)] py-[var(--section-padding-y)]'
+	>
+		<div class='text-center'>
+			<div>
+				<h2 class='text-5xl leading-loose font-bold text-text-primary'>
+					Preguntas frecuentes
+				</h2>
+				<p class='text-lg leading-snug text-balance'>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit.
+					Sapiente architecto qui, labore obcaecati delectus facere.
+					Nesciunt quo earum debitis! Minus, officiis. Qui quibusdam
+					fugit tenetur nostrum quo pariatur velit repellendus!
+				</p>
+			</div>
+		</div>
+
+		<div class='flex gap-16'>
+			<div class='w-[40%] overflow-hidden rounded-2xl'>
+				<img
+					class='size-full object-cover'
+					alt='some alt text'
+					src={FaqGif}
+				/>
+			</div>
+			<div class='w-[60%] space-y-16'>
+				<AccordionGroup>
+					{#each items as item}
+						<Accordion>
+							{#snippet heading()}
+								<h3
+									class='text-2xl leading-loose font-semibold text-text-primary'
+								>
+									{item.title}
+								</h3>
+							{/snippet}
+
+							{#snippet content()}
+								<p class='text-lg leading-snug text-pretty'>
+									{item.description}
+								</p>
+							{/snippet}
+						</Accordion>
+					{/each}
+				</AccordionGroup>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- <section class={cn('isolate size-full', class_name)} {...rest}>
 	<div
 		class='grid grid-rows-[auto_1fr_auto] gap-16 px-[var(--section-padding-x)] py-[var(--section-padding-y)]'
 	>
@@ -67,4 +122,4 @@
 			</div>
 		</div>
 	</div>
-</section>
+</section> -->
