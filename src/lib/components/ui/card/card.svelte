@@ -13,6 +13,7 @@
 	let { image, title, description, class: class_name }: Props = $props();
 </script>
 
+<!-- TODO: Add xl variant -->
 <div class={cn('flex flex-col gap-4 overflow-hidden rounded-xl border border-separator bg-background-primary p-6', class_name)}>
 	<div>
 		{@render image()}
