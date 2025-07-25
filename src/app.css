@@ -3,12 +3,18 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
+@import '@fontsource/ubuntu/300.css';
+@import '@fontsource/ubuntu/400.css';
+@import '@fontsource/ubuntu/500.css';
+@import '@fontsource/ubuntu/700.css';
+
 @theme {
-	--hue: 250;
-	--padding: 96rem;
+	--primary-hue: 40;
+	--secondary-hue: 265;
+	--padding: 88rem;
 
 	/* spacing */
-	--header-height: 4rem;
+	--header-height: 4.25rem;
 	--section-padding-y: 8rem;
 	--section-padding-x: max(2rem, calc(calc(100vw - var(--padding))) / 2);
 
@@ -19,24 +25,37 @@
 	--color-text-primary: var(--color-black);
 	--color-text-secondary: var(--color-zinc-600);
 	--color-background-primary: var(--color-zinc-50);
-	--color-background-secondary: var(--color-zinc-100);
+	--color-background-secondary: var(--color-zinc-300);
 
-	--color-primary-50: oklch(95.88% 0.02 var(--hue));
-	--color-primary-100: oklch(91.75% 0.041 var(--hue));
-	--color-primary-200: oklch(84.15% 0.082 var(--hue));
-	--color-primary-300: oklch(76.12% 0.127 var(--hue));
-	--color-primary-400: oklch(68.02% 0.174 var(--hue));
-	--color-primary-500: oklch(60.56% 0.219 var(--hue));
-	--color-primary-600: oklch(52.44% 0.265 var(--hue));
-	--color-primary-700: oklch(43.42% 0.228 var(--hue));
-	--color-primary-800: oklch(34.2% 0.18 var(--hue));
-	--color-primary-900: oklch(24% 0.125 var(--hue));
-	--color-primary-950: oklch(18.85% 0.1 var(--hue));
+	--color-primary-50: oklch(96.94% 0.017 var(--primary-hue));
+	--color-primary-100: oklch(93.91% 0.035 var(--primary-hue));
+	--color-primary-200: oklch(87.19% 0.077 var(--primary-hue));
+	--color-primary-300: oklch(81.72% 0.114 var(--primary-hue));
+	--color-primary-400: oklch(76.54% 0.151 var(--primary-hue));
+	--color-primary-500: oklch(71.88% 0.186 var(--primary-hue));
+	--color-primary-600: oklch(65.18% 0.203 var(--primary-hue));
+	--color-primary-700: oklch(52.54% 0.162 var(--primary-hue));
+	--color-primary-800: oklch(38.92% 0.116 var(--primary-hue));
+	--color-primary-900: oklch(25.68% 0.07 var(--primary-hue));
+	--color-primary-950: oklch(17.79% 0.043 var(--primary-hue));
+
+	--color-secondary-50: oklch(95.65% 0.021 var(--secondary-hue));
+	--color-secondary-100: oklch(91.42% 0.041 var(--secondary-hue));
+	--color-secondary-200: oklch(82.94% 0.084 var(--secondary-hue));
+	--color-secondary-300: oklch(74.35% 0.131 var(--secondary-hue));
+	--color-secondary-400: oklch(65.84% 0.183 var(--secondary-hue));
+	--color-secondary-500: oklch(57.36% 0.188 var(--secondary-hue));
+	--color-secondary-600: oklch(48.54% 0.159 var(--secondary-hue));
+	--color-secondary-700: oklch(40.01% 0.131 var(--secondary-hue));
+	--color-secondary-800: oklch(31.33% 0.102 var(--secondary-hue));
+	--color-secondary-900: oklch(22.53% 0.074 var(--secondary-hue));
+	--color-secondary-950: oklch(17.56% 0.058 var(--secondary-hue));
 }
 
 html {
 	color-scheme: light dark;
 	text-rendering: optimizeLegibility;
+	font-smooth: always;
 }
 
 html,
@@ -46,18 +65,7 @@ body {
 
 
 body {
-	font-family:
-		system-ui,
-		-apple-system,
-		BlinkMacSystemFont,
-		'Segoe UI',
-		Roboto,
-		Oxygen,
-		Ubuntu,
-		Cantarell,
-		'Open Sans',
-		'Helvetica Neue',
-		sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 }
 
 @media (prefers-reduced-motion: no-preference) {
