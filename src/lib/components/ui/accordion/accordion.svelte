@@ -58,16 +58,27 @@
 </script>
 
 <div class={cn('border-b border-b-separator', class_name)} {...rest}>
-	<button class='group flex w-full cursor-pointer items-center justify-between gap-x-6' onclick={handle_accordion_toggle} type='button'>
-		<div class='h-16 content-center text-lg font-medium whitespace-nowrap group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2'>
+	<button
+		class='group flex w-full cursor-pointer items-center justify-between gap-x-6'
+		onclick={handle_accordion_toggle}
+		type='button'
+	>
+		<div
+			class='min-h-16 content-center text-sm font-medium group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2 sm:text-base md:text-lg md:whitespace-nowrap'
+		>
 			{@render heading()}
 		</div>
 
 		<span>
-			<CaretDown class={`${open ? 'rotate-180' : 'rotate-0'} size-5 transition-transform`} />
+			<CaretDown
+				class={`${open ? 'rotate-180' : 'rotate-0'} size-4 transition-transform md:size-5`}
+			/>
 		</span>
 	</button>
-	<Collapsible class='pb-4 text-base text-text-secondary' bind:open>
+	<Collapsible
+		class='pb-4 text-xs text-text-secondary sm:text-sm md:text-base'
+		bind:open
+	>
 		{@render content()}
 	</Collapsible>
 </div>

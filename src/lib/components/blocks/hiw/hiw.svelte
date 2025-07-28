@@ -43,15 +43,21 @@
 	<div
 		class='space-y-16 px-[var(--section-padding-x)] py-[var(--section-padding-y)]'
 	>
-		<div class='mx-auto max-w-3/5 text-center'>
-			<h2 class='text-5xl leading-loose font-bold text-text-primary'>
+		<div class='mx-auto text-center md:max-w-3/5'>
+			<h2
+				class='pb-6 text-3xl font-bold text-text-primary sm:text-4xl md:text-5xl'
+			>
 				¿Cómo es trabajar con nosotros?
 			</h2>
 			<p class='text-lg leading-snug text-balance'>
-				Trabajamos de la mano contigo en cada etapa del proyecto, asegurando transparencia, comunicación constante y resultados que superen tus expectativas.
+				Trabajamos de la mano contigo en cada etapa del proyecto,
+				asegurando transparencia, comunicación constante y resultados
+				que superen tus expectativas.
 			</p>
 		</div>
-		<div class='relative flex items-start justify-between'>
+		<div
+			class='relative flex flex-col items-center justify-between md:flex-row md:items-start'
+		>
 			{#each items as item}
 				{@const Icon = item.image}
 				<Card
@@ -77,7 +83,7 @@
 					transparent 16px
 					);
 				'
-				class='absolute top-[50%] left-0 h-[2px] w-full text-primary-600'
+				class='absolute top-[50%] left-0 hidden h-[2px] w-full text-primary-600 md:block'
 			></div>
 		</div>
 	</div>

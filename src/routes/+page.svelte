@@ -1,5 +1,5 @@
 <script lang='ts'>
-	import { Hero, Features, Faq, Hiw, Cta } from '$lib/components/blocks';
+	import { Hero, Cta, Features, Hiw, Faq } from '$lib/components/blocks';
 </script>
 
 <div>

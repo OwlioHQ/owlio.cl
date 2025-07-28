@@ -74,8 +74,10 @@
 <section class={cn('isolate size-full', class_name)} {...rest}>
 	<div class='px-[var(--section-padding-x)] py-[var(--section-padding-y)]'>
 		<div class='flex flex-col gap-y-20'>
-			<div class='mx-auto w-2/3 text-center'>
-				<h2 class='text-5xl leading-loose font-bold text-text-primary'>
+			<div class='mx-auto text-center md:w-2/3'>
+				<h2
+					class='pb-6 text-3xl font-bold text-text-primary sm:text-4xl md:text-5xl'
+				>
 					Nuestros Servicios
 				</h2>
 				<p class='text-lg leading-snug text-balance'>
@@ -86,7 +88,7 @@
 				</p>
 			</div>
 			<div
-				class='grid grid-cols-2 place-content-center items-center gap-20'
+				class='grid grid-cols-1 place-content-center items-center gap-12 md:gap-20 lg:grid-cols-2'
 			>
 				<div class='space-y-10'>
 					{#each features as feature (feature.icon)}

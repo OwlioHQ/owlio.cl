@@ -16,7 +16,7 @@
 	/* spacing */
 	--header-height: 4.25rem;
 	--section-padding-y: 8rem;
-	--section-padding-x: max(2rem, calc(calc(100vw - var(--padding))) / 2);
+	--section-padding-x: max(1.5rem, calc(calc(100vw - var(--padding))) / 2);
 
 	/* ui elements */
 	--color-separator: var(--color-zinc-200);

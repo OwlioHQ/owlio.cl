@@ -1,6 +1,10 @@
 <script lang='ts'>
 	import type { NavItem } from '$lib/types';
 
+	import List from 'phosphor-svelte/lib/List';
+
+	import { slide } from 'svelte/transition';
+
 	import { Button } from '../button';
 
 	interface Props {
@@ -9,7 +13,12 @@
 
 	let { items }: Props = $props();
 
+	let open_menu = $state<boolean>(false);
 	let passed_hero = $state<boolean>(false);
+
+	$effect(() => {
+		observe_hero();
+	});
 
 	function observe_hero() {
 		const target = document.getElementById('inicio');
@@ -35,16 +44,14 @@
 			},
 		};
 	}
-
-	$effect(() => {
-		observe_hero();
-	});
 </script>
 
-<header class={`fixed top-0 z-50 w-full shadow backdrop-blur-2xl ${passed_hero ? 'bg-white/40 text-text-primary' : 'bg-gradient-to-r from-indigo-950/20 to-secondary-950/20 text-background-primary/90'}`}>
+<header
+	class={`fixed top-0 z-50 w-full shadow backdrop-blur-2xl ${passed_hero ? 'bg-white/40 text-text-primary' : 'bg-gradient-to-r from-indigo-950/20 to-secondary-950/20 text-background-primary/90'}`}
+>
 	<div class='relative px-[var(--section-padding-x)]'>
-		<nav class='flex h-[var(--header-height)] justify-between gap-x-16'>
-			<div class='flex items-center gap-6'>
+		<nav class={`flex h-[var(--header-height)] justify-between gap-x-16 ${open_menu ? 'border-b border-separator' : ''}`}>
+			<div class='flex w-full items-center justify-between gap-6 md:justify-start'>
 				<div class='pr-10'>
 					<a class='flex items-center gap-2' href='/'>
 						<span
@@ -54,25 +61,54 @@
 						</span>
 					</a>
 				</div>
-				<div class='flex items-center pl-4'>
+				<div class='hidden items-center pl-4 lg:flex'>
 					{#if items}
-						<ul class='flex items-center gap-x-8 font-medium capitalize'>
+						<ul
+							class='flex items-center gap-x-8 font-medium capitalize'
+						>
 							{#each items as item (item.label)}
 								<li>
 									<a
-										clasS='block cursor-pointer p-1 whitespace-nowrap'
-										href={item.href}>{item.label}</a
+										class='block cursor-pointer p-1 whitespace-nowrap'
+										href={item.href}
 									>
+										{item.label}
+									</a>
 								</li>
 							{/each}
 						</ul>
 					{/if}
 				</div>
+				<div class='block md:hidden'>
+					<button class='cursor-pointer rounded-md p-1' onclick={() => open_menu = !open_menu} type='button'>
+						<List class='size-6 align-middle' />
+					</button>
+				</div>
 			</div>
 
-			<div class='flex items-center gap-x-4'>
+			<div class='hidden items-center gap-x-4 lg:flex'>
 				<Button>Contáctanos</Button>
 			</div>
 		</nav>
+
+		{#if open_menu}
+			<nav class='h-[calc(100vh-var(--header-height))] py-8' transition:slide={{ axis: 'y' }}>
+				{#if items}
+					<ul
+						class='flex flex-col items-center gap-x-8 font-medium capitalize'
+					>
+						{#each items as item (item.label)}
+							<li class='w-full text-left'>
+								<a
+									class='block h-12 cursor-pointer p-1 whitespace-nowrap'
+									href={item.href}
+									onclick={() => open_menu = false}>{item.label}</a
+								>
+							</li>
+						{/each}
+					</ul>
+				{/if}
+			</nav>
+		{/if}
 	</div>
 </header>

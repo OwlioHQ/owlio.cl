@@ -24,12 +24,12 @@
 				<span
 					class='text-xl tracking-widest text-text-secondary uppercase'
 				>
-					<span class='font-semibold text-text-primary'>Rapid</span
-					>flow
+					<span class='font-semibold text-text-primary'>Owl</span
+					>io
 				</span>
 			</a>
 
-			<div>
+			<div class='hidden sm:block'>
 				{#if items}
 					<ul class='flex items-center gap-x-8'>
 						{#each items as item (item.href)}
@@ -45,7 +45,7 @@
 		</div>
 		<div class='flex items-center justify-between py-8'>
 			<span class='text-sm text-text-secondary'>
-				© 2025 Rapidflow. All rights reserved.
+				© 2025 Owlio. All rights reserved.
 			</span>
 			<div>
 				<!-- -->

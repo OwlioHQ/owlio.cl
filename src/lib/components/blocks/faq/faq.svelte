@@ -42,7 +42,6 @@
 				'Aplicamos revisiones estrictas, CI/CD automatizado, linters, pruebas unitarias y escaneos de seguridad en cada etapa del desarrollo. Todo el código sigue estándares robustos y auditables.',
 		},
 	];
-
 </script>
 
 <section class={cn('isolate size-full', class_name)} {...rest}>
@@ -51,7 +50,9 @@
 	>
 		<div class='text-center'>
 			<div>
-				<h2 class='text-5xl leading-loose font-bold text-text-primary'>
+				<h2
+					class='text-3xl leading-loose font-bold text-text-primary sm:text-4xl md:text-5xl'
+				>
 					Preguntas frecuentes
 				</h2>
 				<p class='text-lg leading-snug text-balance'>
@@ -64,20 +65,20 @@
 		</div>
 
 		<div class='flex gap-16'>
-			<div class='w-[40%] overflow-hidden rounded-2xl'>
+			<div class='hidden overflow-hidden rounded-2xl md:w-[40%] lg:block'>
 				<img
 					class='size-full object-cover'
 					alt='some alt text'
 					src={FaqGif}
 				/>
 			</div>
-			<div class='w-[60%] space-y-16'>
+			<div class='w-full space-y-16 md:w-[60%]'>
 				<AccordionGroup>
 					{#each items as item}
 						<Accordion>
 							{#snippet heading()}
 								<h3
-									class='text-2xl leading-loose font-semibold text-text-primary'
+									class='py-4 text-left text-xl leading-snug font-semibold text-text-primary md:text-2xl'
 								>
 									{item.title}
 								</h3>
@@ -95,31 +96,3 @@
 		</div>
 	</div>
 </section>
-
-<!-- <section class={cn('isolate size-full', class_name)} {...rest}>
-	<div
-		class='grid grid-rows-[auto_1fr_auto] gap-16 px-[var(--section-padding-x)] py-[var(--section-padding-y)]'
-	>
-		<div class='mx-auto max-w-3/5 text-center'>
-			<h2 class='text-5xl leading-loose font-bold text-text-primary'>
-				Questions & Answers
-			</h2>
-			<p class='text-lg leading-snug text-balance'>
-				Lorem ipsum dolor sit amet consectetur adipisicing elit.
-				Sapiente architecto qui, labore obcaecati delectus facere.
-				Nesciunt quo earum debitis! Minus, officiis. Qui quibusdam fugit
-				tenetur nostrum quo pariatur velit repellendus!
-			</p>
-		</div>
-		<div class='grid grid-cols-2 grid-rows-2 gap-16'>
-			{#each items as item}
-				<FeatureItem {...item} />
-			{/each}
-		</div>
-		<div class='mx-auto max-w-3/5 py-4'>
-			<div class='h-10 content-center rounded-full bg-separator px-16'>
-				<span class='text-base font-medium text-text-primary'>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span>
-			</div>
-		</div>
-	</div>
-</section> -->
