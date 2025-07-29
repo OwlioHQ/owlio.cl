@@ -19,6 +19,9 @@ const config = {
 		dev: is_dev,
 		runes: true,
 		modernAst: true,
+		experimental: {
+			async: true,
+		},
 	},
 };
 
