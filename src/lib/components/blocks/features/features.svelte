@@ -98,7 +98,7 @@
 
 				<!-- Logos -->
 				<div
-					class='aspect-square overflow-hidden rounded-2xl border border-separator'
+					class='aspect-square overflow-hidden'
 				>
 					<LogoSlider />
 				</div>
