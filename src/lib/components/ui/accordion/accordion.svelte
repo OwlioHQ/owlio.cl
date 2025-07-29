@@ -64,7 +64,7 @@
 		type='button'
 	>
 		<div
-			class='min-h-16 content-center text-sm font-medium group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2 sm:text-base md:text-lg md:whitespace-nowrap'
+			class='min-h-16 content-center text-sm font-medium group-hover:underline group-hover:decoration-2 group-hover:underline-offset-2 sm:text-base md:text-lg'
 		>
 			{@render heading()}
 		</div>

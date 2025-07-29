@@ -1,14 +1,11 @@
 <script lang='ts'>
-	import type { NavItem } from '$lib/types';
 	import type { HTMLAttributes } from 'svelte/elements';
 
 	import { cn } from '$lib/utils';
 
-	interface Props extends HTMLAttributes<HTMLElement> {
-		items: NavItem[];
-	}
+	interface Props extends HTMLAttributes<HTMLElement> {}
 
-	let { items, class: class_name, ...rest }: Props = $props();
+	let { class: class_name, ...rest }: Props = $props();
 </script>
 
 <footer
@@ -28,20 +25,6 @@
 					>io
 				</span>
 			</a>
-
-			<div class='hidden sm:block'>
-				{#if items}
-					<ul class='flex items-center gap-x-8'>
-						{#each items as item (item.href)}
-							<li>
-								<a class='block p-1' href={item.href}
-								>{item.label}</a
-								>
-							</li>
-						{/each}
-					</ul>
-				{/if}
-			</div>
 		</div>
 		<div class='flex items-center justify-between py-8'>
 			<span class='text-sm text-text-secondary'>

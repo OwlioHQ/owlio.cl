@@ -51,7 +51,7 @@
 >
 	<div class='relative px-[var(--section-padding-x)]'>
 		<nav class={`flex h-[var(--header-height)] justify-between gap-x-16 ${open_menu ? 'border-b border-separator' : ''}`}>
-			<div class='flex w-full items-center justify-between gap-6 md:justify-start'>
+			<div class='flex w-full items-center justify-between gap-6 lg:justify-start'>
 				<div class='pr-10'>
 					<a class='flex items-center gap-2' href='/'>
 						<span
@@ -79,7 +79,7 @@
 						</ul>
 					{/if}
 				</div>
-				<div class='block md:hidden'>
+				<div class='block lg:hidden'>
 					<button class='cursor-pointer rounded-md p-1' onclick={() => open_menu = !open_menu} type='button'>
 						<List class='size-6 align-middle' />
 					</button>

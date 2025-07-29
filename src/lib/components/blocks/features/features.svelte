@@ -88,7 +88,7 @@
 				</p>
 			</div>
 			<div
-				class='grid grid-cols-1 place-content-center items-center gap-12 md:gap-20 lg:grid-cols-2'
+				class='grid grid-cols-1 place-content-center items-center gap-20 lg:grid-cols-2'
 			>
 				<div class='space-y-10'>
 					{#each features as feature (feature.icon)}

@@ -56,7 +56,7 @@
 			</p>
 		</div>
 		<div
-			class='relative flex flex-col items-center justify-between md:flex-row md:items-start'
+			class='relative flex flex-col items-center justify-between lg:flex-row lg:items-start'
 		>
 			{#each items as item}
 				{@const Icon = item.image}
@@ -83,7 +83,7 @@
 					transparent 16px
 					);
 				'
-				class='absolute top-[50%] left-0 hidden h-[2px] w-full text-primary-600 md:block'
+				class='absolute top-[50%] left-0 hidden h-[2px] w-full text-primary-600 lg:block'
 			></div>
 		</div>
 	</div>

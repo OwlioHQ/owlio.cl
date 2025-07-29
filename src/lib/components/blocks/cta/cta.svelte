@@ -26,17 +26,17 @@
 			class='px-[var(--section-padding-x)] py-[var(--section-padding-y)]'
 		>
 			<div
-				class='flex flex-col items-center gap-y-6 rounded-2xl bg-background-primary p-8 sm:p-14 md:flex-row md:p-20'
+				class='flex flex-col items-center gap-y-6 rounded-2xl bg-background-primary p-8 sm:p-14 xl:flex-row xl:p-20'
 			>
-				<div class='space-y-8 md:w-3/5'>
+				<div class='space-y-8 xl:w-3/5'>
 					<div class='space-y-4'>
 						<h2
-							class='text-2xl font-bold text-wrap text-text-primary sm:text-4xl md:text-5xl'
+							class='text-2xl font-bold text-wrap text-text-primary sm:text-4xl xl:text-5xl'
 						>
 							¿Preparado para transformar tu empresa?
 						</h2>
 						<p
-							class='text-base leading-snug italic sm:text-lg md:text-xl md:whitespace-nowrap'
+							class='text-base leading-snug italic sm:text-lg xl:text-xl xl:whitespace-nowrap'
 						>
 							Póngase en contacto para obtener más información
 							sobre cómo podemos ayudarlo.
@@ -46,19 +46,19 @@
 						{#each items as item}
 							<div class='flex items-center'>
 								<div class='flex flex-col items-center gap-2 sm:flex-row'>
-									<IconBadge class='size-8 p-0 md:size-6 lg:size-6'>
+									<IconBadge class='size-8 p-0 sm:size-8 md:size-6 lg:size-6 xl:size-6'>
 										<Check />
 									</IconBadge>
-									<span class='text-sm whitespace-nowrap italic md:text-base'>{item}</span>
+									<span class='text-sm whitespace-nowrap italic xl:text-base'>{item}</span>
 								</div>
 							</div>
 						{/each}
 					</div>
 				</div>
-				<div class='md:ml-auto md:p-10'>
-					<Button class='h-12 px-8 text-lg sm:text-xl md:h-14 md:px-10 md:text-2xl'>
+				<div class='xl:ml-auto xl:p-10'>
+					<Button class='h-12 px-8 text-lg sm:text-xl xl:h-14 xl:px-10 xl:text-2xl'>
 						<span>Contáctanos</span>
-						<ArrowSquareOut class='size-4 md:size-5' />
+						<ArrowSquareOut class='size-4 xl:size-5' />
 					</Button>
 				</div>
 			</div>

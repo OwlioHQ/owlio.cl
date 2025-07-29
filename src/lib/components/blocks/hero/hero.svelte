@@ -48,7 +48,7 @@
 	];
 </script>
 
-<section class={cn('isolate size-full lg:h-[1080px]', class_name)} {...rest}>
+<section class={cn('isolate size-full lg:min-h-[1080px]', class_name)} {...rest}>
 	<div
 		style="grid-template-areas: 'container'"
 		class='isolate grid size-full overflow-hidden'

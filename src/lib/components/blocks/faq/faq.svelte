@@ -65,14 +65,14 @@
 		</div>
 
 		<div class='flex gap-16'>
-			<div class='hidden overflow-hidden rounded-2xl md:w-[40%] lg:block'>
+			<div class='hidden overflow-hidden rounded-2xl lg:block lg:w-[40%]'>
 				<img
 					class='size-full object-cover'
 					alt='some alt text'
 					src={FaqGif}
 				/>
 			</div>
-			<div class='w-full space-y-16 md:w-[60%]'>
+			<div class='w-full space-y-16 lg:w-[60%]'>
 				<AccordionGroup>
 					{#each items as item}
 						<Accordion>

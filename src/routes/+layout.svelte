@@ -41,5 +41,5 @@
 		{@render children()}
 	</main>
 
-	<Footer {items} />
+	<Footer />
 </div>
