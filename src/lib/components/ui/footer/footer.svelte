@@ -16,22 +16,27 @@
 
 	const socials = [
 		{
+			label: 'Mail',
 			icon: EnvelopeSimple,
 			href: 'mailto:owlio.contacto@gmail.com',
 		},
 		{
+			label: 'X',
 			icon: XLogo,
 			href: 'https://x.com/owlio_cl',
 		},
 		{
+			label: 'Instagram',
 			icon: InstagramLogo,
 			href: 'https://www.instagram.com/owlio_cl/?hl=es',
 		},
 		{
+			label: 'Facebook',
 			icon: FacebookLogo,
 			href: 'https://web.facebook.com/profile.php?id=61578924622725',
 		},
 		{
+			label: 'Linkedin',
 			icon: LinkedinLogo,
 			href: 'https://www.linkedin.com/company/owlio-cl',
 		},
@@ -65,7 +70,7 @@
 			<div class='flex items-center gap-x-3'>
 				{#each socials as social}
 					{@const Logo = social.icon}
-					<a href={social.href} referrerpolicy='no-referrer' target='_blank'>
+					<a aria-label={social.label} href={social.href} referrerpolicy='no-referrer' target='_blank'>
 						<Logo class='size-6 transition-colors focus-within:fill-black hover:fill-black' />
 					</a>
 				{/each}
