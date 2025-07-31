@@ -56,7 +56,7 @@
 					</div>
 				</div>
 				<div class='xl:ml-auto xl:p-10'>
-					<Button class='h-12 px-8 text-lg sm:text-xl xl:h-14 xl:px-10 xl:text-2xl'>
+					<Button class='h-12 px-8 text-lg sm:text-xl xl:h-14 xl:px-10 xl:text-2xl' href='https://calendar.app.google/M7mnJfaFNC1N9Au3A' referrerpolicy='no-referrer' target='_blank'>
 						<span>Contáctanos</span>
 						<ArrowSquareOut class='size-4 xl:size-5' />
 					</Button>

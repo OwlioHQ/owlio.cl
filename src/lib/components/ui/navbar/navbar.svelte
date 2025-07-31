@@ -2,6 +2,12 @@
 	import type { NavItem } from '$lib/types';
 
 	import List from 'phosphor-svelte/lib/List';
+	import XLogo from 'phosphor-svelte/lib/XLogo';
+	import FacebookLogo from 'phosphor-svelte/lib/FacebookLogo';
+	import LinkedinLogo from 'phosphor-svelte/lib/LinkedinLogo';
+	import OwlioLogo from '$lib/assets/logos/owlio.png?enhanced';
+	import InstagramLogo from 'phosphor-svelte/lib/InstagramLogo';
+	import EnvelopeSimple from 'phosphor-svelte/lib/EnvelopeSimple';
 
 	import { slide } from 'svelte/transition';
 
@@ -15,6 +21,29 @@
 
 	let open_menu = $state<boolean>(false);
 	let passed_hero = $state<boolean>(false);
+
+	const socials = [
+		{
+			icon: EnvelopeSimple,
+			href: 'owlio.contacto@gmail.com',
+		},
+		{
+			icon: XLogo,
+			href: 'https://x.com/owlio_cl',
+		},
+		{
+			icon: InstagramLogo,
+			href: 'https://www.instagram.com/owlio_cl/?hl=es',
+		},
+		{
+			icon: FacebookLogo,
+			href: 'https://web.facebook.com/profile.php?id=61578924622725',
+		},
+		{
+			icon: LinkedinLogo,
+			href: 'https://www.linkedin.com/company/owlio-cl',
+		},
+	];
 
 	$effect(() => {
 		observe_hero();
@@ -54,11 +83,16 @@
 			<div class='flex w-full items-center justify-between gap-6 lg:justify-start'>
 				<div class='pr-10'>
 					<a class='flex items-center gap-2' href='/'>
-						<span
-							class='text-xl font-bold tracking-widest uppercase'
-						>
-							Owl<span class='font-light'>io</span>
-						</span>
+
+						<div class='flex items-center gap-x-2'>
+							<enhanced:img class={`w-4 object-contain ${passed_hero ? 'invert-0' : 'invert-100'}`} src={OwlioLogo} />
+							<span
+								class='text-xl font-bold tracking-widest uppercase'
+							>
+								Owl<span class='font-light'>io</span>
+							</span>
+
+						</div>
 					</a>
 				</div>
 				<div class='hidden items-center pl-4 lg:flex'>
@@ -79,15 +113,24 @@
 						</ul>
 					{/if}
 				</div>
-				<div class='block lg:hidden'>
+				<div class='lg:hidden'>
+
 					<button class='cursor-pointer rounded-md p-1' onclick={() => open_menu = !open_menu} type='button'>
 						<List class='size-6 align-middle' />
 					</button>
 				</div>
 			</div>
 
-			<div class='hidden items-center gap-x-4 lg:flex'>
-				<Button>Contáctanos</Button>
+			<div class='hidden items-center gap-x-8 lg:flex'>
+				<div class='lg:flex lg:items-center lg:gap-x-2'>
+					{#each socials as social}
+						{@const Logo = social.icon}
+						<a class='block p-0.5' href={social.href} referrerpolicy='no-referrer' target='_blank'>
+							<Logo class='size-7 transition-colors focus-within:fill-primary-500 hover:fill-primary-500' />
+						</a>
+					{/each}
+				</div>
+				<Button href='https://calendar.app.google/M7mnJfaFNC1N9Au3A' referrerpolicy='no-referrer' target='_blank'>Contáctanos</Button>
 			</div>
 		</nav>
 

@@ -80,7 +80,7 @@
 					</div>
 
 					<div class='flex items-center justify-center'>
-						<Button class='h-12 px-10 md:px-12'>
+						<Button class='h-12 px-10 md:px-12' href='https://calendar.app.google/M7mnJfaFNC1N9Au3A' referrerpolicy='no-referrer' target='_blank'>
 							<span class='text-lg md:text-xl'> Contáctanos </span>
 							<ArrowRight class='size-5 md:size-6' />
 						</Button>
