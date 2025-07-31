@@ -17,7 +17,7 @@
 	const socials = [
 		{
 			icon: EnvelopeSimple,
-			href: 'owlio.contacto@gmail.com',
+			href: 'mailto:owlio.contacto@gmail.com',
 		},
 		{
 			icon: XLogo,
