@@ -46,7 +46,7 @@
 
 <section class={cn('isolate size-full', class_name)} {...rest}>
 	<div
-		class='grid items-center justify-center gap-y-20 px-[var(--section-padding-x)] py-[var(--section-padding-y)]'
+		class='grid items-center justify-center gap-y-8 px-[var(--section-padding-x)] py-[var(--section-padding-y)] md:gap-y-16'
 	>
 		<div class='text-center'>
 			<div>
@@ -55,12 +55,12 @@
 				>
 					Preguntas frecuentes
 				</h2>
-				<p class='text-lg leading-snug text-balance'>
+				<!-- <p class='text-lg leading-snug text-balance'>
 					Lorem ipsum dolor sit amet consectetur adipisicing elit.
 					Sapiente architecto qui, labore obcaecati delectus facere.
 					Nesciunt quo earum debitis! Minus, officiis. Qui quibusdam
 					fugit tenetur nostrum quo pariatur velit repellendus!
-				</p>
+				</p> -->
 			</div>
 		</div>
 
