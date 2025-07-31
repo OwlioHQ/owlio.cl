@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-netlify';
 
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 
@@ -11,7 +11,8 @@ const config = {
 	}),
 	kit: {
 		adapter: adapter({
-			precompress: true,
+			edge: false,
+			split: false,
 		}),
 	},
 	compilerOptions: {
