@@ -4,7 +4,7 @@
 	import XLogo from 'phosphor-svelte/lib/XLogo';
 	import FacebookLogo from 'phosphor-svelte/lib/FacebookLogo';
 	import LinkedinLogo from 'phosphor-svelte/lib/LinkedinLogo';
-	import OwlioLogo from '$lib/assets/logos/owlio.png?enhanced';
+	import OwlioLogo from '$lib/assets/images/owlio.png?enhanced';
 	import InstagramLogo from 'phosphor-svelte/lib/InstagramLogo';
 	import EnvelopeSimple from 'phosphor-svelte/lib/EnvelopeSimple';
 
@@ -49,7 +49,7 @@
 		<div class='flex items-center justify-between py-8'>
 			<a class='flex items-center gap-2' href='/'>
 				<div class='flex items-center gap-x-2'>
-					<enhanced:img class='w-4 object-contain' src={OwlioLogo} />
+					<enhanced:img class='w-4 object-contain' alt='Owlio logo' src={OwlioLogo} />
 					<span
 						class='text-xl font-bold tracking-widest text-text-primary uppercase'
 					>
