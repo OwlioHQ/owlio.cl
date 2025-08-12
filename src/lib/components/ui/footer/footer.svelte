@@ -39,7 +39,7 @@
 			<div class='flex items-center gap-x-3'>
 				{#each socials as social}
 					{@const Logo = social.icon}
-					<Link aria-label={social.label} href={social.href}>
+					<Link aria-label={social.label} href={social.href} target='_blank'>
 						<Logo
 							class='size-6 fill-foreground transition-colors group-focus-within:fill-accent group-hover:fill-accent'
 						/>

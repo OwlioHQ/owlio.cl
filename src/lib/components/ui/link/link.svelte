@@ -18,7 +18,6 @@
 	)}
 	{href}
 	referrerpolicy='no-referrer'
-	target='_blank'
 	{...rest}
 >
 	{@render children()}

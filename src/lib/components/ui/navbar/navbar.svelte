@@ -70,7 +70,6 @@
 			<Link
 				class='flex items-center gap-x-2 no-underline!'
 				href='/'
-				target='_self'
 			>
 				<enhanced:img
 					class={`w-4 object-contain ${passed_hero ? 'invert-0' : 'invert-100'}`}
@@ -117,7 +116,7 @@
 			<div class='xl:flex xl:items-center xl:gap-x-2'>
 				{#each socials as social}
 					{@const Logo = social.icon}
-					<Link aria-label={social.label} href={social.href}>
+					<Link aria-label={social.label} href={social.href} target='_blank'>
 						<Logo
 							class={`size-7 ${passed_hero ? 'fill-foreground' : 'fill-background'} transition-colors group-focus-within:fill-accent group-hover:fill-accent`}
 						/>
@@ -151,7 +150,6 @@
 								class={`w-full content-center border-b ${passed_hero ? 'border-b-foreground text-muted focus-within:border-b-foreground focus-within:text-foreground hover:border-b-foreground hover:text-foreground' : 'border-b-muted-foreground text-muted-foreground focus-within:border-b-background focus-within:text-background hover:border-b-background hover:text-background'} px-4 py-2.5 no-underline!`}
 								href={item.href}
 								onclick={() => (open_menu = false)}
-								target='_self'
 							>
 								{item.label}
 							</Link>
@@ -166,7 +164,7 @@
 					<Link
 						aria-label={social.label}
 						href={social.href}
-						target='_self'
+						target='_blank'
 					>
 						<Logo
 							class={`size-7 ${passed_hero ? 'fill-foreground' : 'fill-background'} transition-colors group-focus-within:fill-accent group-hover:fill-accent`}
