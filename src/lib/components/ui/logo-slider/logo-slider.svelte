@@ -1,4 +1,6 @@
 <script lang='ts'>
+	import type { Picture } from '$lib/types';
+
 	const COLUMN_COUNT = 3;
 	const LOGOS_PER_COLUMN = 8;
 
@@ -10,7 +12,7 @@
 				enhanced: true,
 			},
 		}),
-	);
+	) as [string, Picture][];
 
 	const logo_columns = Array.from({ length: COLUMN_COUNT }, (_, index) =>
 		all_logos.slice(
