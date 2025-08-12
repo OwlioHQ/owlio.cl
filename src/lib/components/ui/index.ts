@@ -1,4 +1,5 @@
 export { Card } from './card';
+export { Link } from './link';
 export { Navbar } from './navbar';
 export { Footer } from './footer';
 export { Button } from './button';
