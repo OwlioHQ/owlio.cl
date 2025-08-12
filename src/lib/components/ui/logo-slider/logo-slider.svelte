@@ -1,89 +1,53 @@
 <script lang='ts'>
-	const logos = Object.entries(
+	const COLUMN_COUNT = 3;
+	const LOGOS_PER_COLUMN = 8;
+
+	const all_logos = Object.entries(
 		import.meta.glob('/src/lib/assets/logos/*.png', {
 			eager: true,
+			import: 'default',
 			query: {
 				enhanced: true,
 			},
 		}),
-	) as [string, { default: any }][];
-
-	const column_length = 8;
-	const logo_columns = [0, 1, 2].map(i =>
-		logos.slice(i * column_length, (i + 1) * column_length),
 	);
+
+	const logo_columns = Array.from({ length: COLUMN_COUNT }, (_, index) =>
+		all_logos.slice(
+			index * LOGOS_PER_COLUMN,
+			(index + 1) * LOGOS_PER_COLUMN,
+		));
+
+	function get_logo_name(path: string): string {
+		return path.split('/').pop()?.split('.')[0] || '';
+	}
 </script>
 
-<div class='flex size-full place-content-center items-center gap-x-6 md:gap-x-12'>
-	{#each logo_columns as column, i}
-		{@render carousel_column(column, i)}
+<div class='flex size-full items-center justify-center gap-2 xl:gap-6'>
+	{#each logo_columns as logos, index}
+		<div
+			class='relative h-full w-36 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]'
+		>
+			<div
+				class={`absolute inset-x-0 grid gap-6 ${
+					index % 2 === 0 ? 'animate-down' : 'animate-up'
+				}`}
+			>
+				<!-- To get a seamless loop -->
+				{#each [logos, logos] as logo_set}
+					{#each logo_set as [path, module]}
+						<div
+							class='flex aspect-square size-full max-w-32 flex-col items-center justify-center rounded-lg border border-muted-foreground bg-background p-6 shadow'
+						>
+							<enhanced:img
+								class='size-full object-contain'
+								alt='{get_logo_name(path)} logo'
+								src={module}
+							/>
+						</div>
+					{/each}
+				{/each}
+			</div>
+		</div>
 	{/each}
 </div>
-
-{#snippet carousel_column(logos: [string, { default: any }][], index: number)}
-	<div
-		class='relative h-full w-36 overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_20%,black_80%,transparent)]'
-	>
-		<div
-			class='absolute inset-x-0 grid gap-y-6'
-			class:animate-down={index !== 1}
-			class:animate-up={index === 1}
-		>
-			{#each logos as [path, module]}
-				{@const name = path.split('/').at(-1)!.split('.').at(0)}
-				<div
-					class='flex size-24 flex-col items-center justify-center rounded-lg border border-separator bg-background-primary p-2 shadow sm:size-30 sm:p-4 md:size-36 md:p-6'
-					aria-hidden='true'
-				>
-					<enhanced:img
-						class='size-full object-contain'
-						alt='{name} logo'
-						src={module.default}
-					/>
-				</div>
-			{/each}
-
-			{#each logos as [path, module]}
-				{@const name = path.split('/').at(-1)!.split('.').at(0)}
-				<div
-					class='flex size-24 flex-col items-center justify-center rounded-lg border border-separator bg-background-primary p-2 shadow sm:size-30 sm:p-4 md:size-36 md:p-6'
-					aria-hidden='true'
-				>
-					<enhanced:img
-						class='size-full object-contain'
-						alt='{name} logo'
-						src={module.default}
-					/>
-				</div>
-			{/each}
-		</div>
-	</div>
-{/snippet}
-
-<style>
-	@keyframes scroll-up {
-		from {
-			transform: translateY(0);
-		}
-		to {
-			transform: translateY(-50%);
-		}
-	}
-
-	@keyframes scroll-down {
-		from {
-			transform: translateY(-50%);
-		}
-		to {
-			transform: translateY(0);
-		}
-	}
-
-	.animate-up {
-		animation: scroll-up 40s linear infinite;
-	}
-
-	.animate-down {
-		animation: scroll-down 40s linear infinite;
-	}
-</style>
