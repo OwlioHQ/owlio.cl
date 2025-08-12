@@ -2,10 +2,9 @@
 	import type { Snippet } from 'svelte';
 	import type { HTMLAttributes } from 'svelte/elements';
 
-	import CaretDown from 'phosphor-svelte/lib/CaretDown';
-
 	import { cn } from '$lib/utils';
 	import { untrack } from 'svelte';
+	import { CaretDown } from '$lib/components/icons';
 
 	import { Collapsible } from '../collapsible';
 
@@ -57,7 +56,7 @@
 	}
 </script>
 
-<div class={cn('border-b border-b-separator', class_name)} {...rest}>
+<div class={cn('border-b border-b-muted-foreground', class_name)} {...rest}>
 	<button
 		class='group flex w-full cursor-pointer items-center justify-between gap-x-6'
 		onclick={handle_accordion_toggle}
@@ -75,8 +74,9 @@
 			/>
 		</span>
 	</button>
+
 	<Collapsible
-		class='pb-4 text-xs text-text-secondary sm:text-sm md:text-base'
+		class='pb-4 text-xs text-muted sm:text-sm md:text-base'
 		bind:open
 	>
 		{@render content()}
