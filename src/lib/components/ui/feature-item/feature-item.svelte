@@ -1,9 +1,5 @@
 <script lang='ts'>
 	import type { Component } from 'svelte';
-	import type {
-		TailwindCSSBackgroundColor,
-		TailwindCSSFillColor,
-	} from '$lib/types';
 
 	import { cn } from '$lib/utils';
 
@@ -14,8 +10,8 @@
 			| Component
 			| {
 				component: Component;
-				background?: TailwindCSSBackgroundColor;
-				stroke?: TailwindCSSFillColor;
+				background?: string;
+				stroke?: string;
 			};
 		title: string;
 		description: string;
@@ -34,7 +30,7 @@
 
 <div
 	class={cn(
-		'grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] items-center gap-x-4 gap-y-4 md:gap-x-6',
+		'grid grid-cols-[auto_1fr] grid-rows-[auto_1fr] items-center gap-x-4 gap-y-2.5 md:gap-x-6',
 		class_name,
 	)}
 >
@@ -42,11 +38,11 @@
 		<Icon class={stroke} />
 	</IconBadge>
 
-	<h3 class='text-xl font-semibold text-text-primary'>
+	<h3 class='text-xl leading-tight font-semibold'>
 		{title}
 	</h3>
 
 	<div class='col-span-2 w-fit space-y-2 md:col-span-1 md:col-start-2'>
-		<p class='text-base leading-snug'>{description}</p>
+		<p class='text-base leading-snug text-muted'>{description}</p>
 	</div>
 </div>

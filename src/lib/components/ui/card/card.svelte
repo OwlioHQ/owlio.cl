@@ -14,15 +14,15 @@
 </script>
 
 <!-- TODO: Add xl variant -->
-<div class={cn('flex flex-col gap-4 overflow-hidden rounded-xl border border-separator bg-background-primary p-6', class_name)}>
+<div class={cn('flex flex-col gap-4 overflow-hidden rounded-xl border border-muted-foreground bg-background p-(--content-x-spacing)', class_name)}>
 	<div>
 		{@render image()}
 	</div>
 
-	<div>
-		<span class='text-xl leading-loose font-semibold text-text-primary'>{title}</span>
+	<hgroup class='space-y-4'>
+		<h3 class='text-xl leading-tight font-semibold'>{title}</h3>
 		{#if description}
-			<p class='text-base leading-snug text-pretty'>{description}</p>
+			<p class='text-base leading-snug text-pretty text-muted'>{description}</p>
 		{/if}
-	</div>
+	</hgroup>
 </div>
