@@ -39,7 +39,7 @@
 	<a
 		class={merged_classes}
 		referrerpolicy='no-referrer'
-		target='_blank'
+		target='_self'
 		{...rest}
 	>
 		{@render children()}
