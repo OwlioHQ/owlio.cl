@@ -14,7 +14,11 @@
 </script>
 
 <footer
-	class={cn('mx-auto w-full max-w-(--content-width) bg-background px-(--content-x-spacing)', class_name)}
+	id='footer'
+	class={cn(
+		'mx-auto w-full max-w-(--content-width) bg-background px-(--content-x-spacing)',
+		class_name,
+	)}
 	{...rest}
 >
 	<div class='divide-y divide-muted-foreground'>
@@ -33,13 +37,15 @@
 			</a>
 		</div>
 		<div class='flex items-center justify-between py-8'>
-			<span class='text-sm text-muted'>
-				© 2025 Owlio.
-			</span>
+			<span class='text-sm text-muted'> © 2025 Owlio. </span>
 			<div class='flex items-center gap-x-3'>
 				{#each socials as social}
 					{@const Logo = social.icon}
-					<Link aria-label={social.label} href={social.href} target='_blank'>
+					<Link
+						aria-label={social.label}
+						href={social.href}
+						target='_blank'
+					>
 						<Logo
 							class='size-6 fill-foreground transition-colors group-focus-within:fill-accent group-hover:fill-accent'
 						/>

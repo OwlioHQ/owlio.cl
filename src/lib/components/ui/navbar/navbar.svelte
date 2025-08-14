@@ -18,7 +18,7 @@
 	let { items }: Props = $props();
 
 	let open_menu = $state<boolean>(false);
-	let passed_hero = $state<boolean>(false);
+	let has_dark_bg = $state<boolean>(false);
 	let is_lg_screen = new MediaQuery('min-width: 1280px');
 
 	$effect(() => {
@@ -30,33 +30,43 @@
 	});
 
 	function observe_hero() {
-		const target = document.getElementById('inicio');
+		const to_observe = ['inicio'];
+		const targets = to_observe
+			.map(id => document.getElementById(id))
+			.filter((el): el is HTMLElement => el !== null);
 
-		if (!target)
+		if (!targets)
 			return;
 
-		const observer = new IntersectionObserver(
-			([entry]) => {
-				passed_hero = !entry.isIntersecting;
-			},
-			{
-				root: null,
-				threshold: 0.03,
-			},
-		);
+		const observers: IntersectionObserver[] = [];
 
-		observer.observe(target);
+		for (const target of targets) {
+			const observer = new IntersectionObserver(
+				([entry]) => {
+					has_dark_bg = !entry.isIntersecting;
+				},
+				{
+					root: null,
+					threshold: 0.03,
+				},
+			);
+
+			observer.observe(target);
+			observers.push(observer);
+		}
 
 		return {
 			destroy() {
-				observer.disconnect();
+				for (const observer of observers) {
+					observer.disconnect();
+				}
 			},
 		};
 	}
 </script>
 
 <header
-	class={`fixed top-0 z-50 w-full shadow backdrop-blur-2xl ${passed_hero ? 'bg-background/40' : 'bg-gradient-to-r from-secondary/20 to-primary/20 text-background'}`}
+	class={`fixed top-0 z-50 w-full shadow backdrop-blur-2xl ${has_dark_bg ? 'bg-background/40' : 'bg-gradient-to-r from-secondary/20 to-primary/20 text-background'}`}
 >
 	<nav
 		class={`relative mx-auto flex h-(--header-height) max-w-(--content-width) justify-between gap-x-16 px-(--content-x-spacing) ${
@@ -72,7 +82,7 @@
 				href='/'
 			>
 				<enhanced:img
-					class={`w-4 object-contain ${passed_hero ? 'invert-0' : 'invert-100'}`}
+					class={`w-4 object-contain ${has_dark_bg ? 'invert-0' : 'invert-100'}`}
 					alt='Owlio logo'
 					src={OwlioLogo}
 				/>
@@ -105,7 +115,7 @@
 					variant='ghost'
 				>
 					<List
-						class={`inline-block size-6 align-middle ${passed_hero ? 'fill-foreground' : 'fill-background'}`}
+						class={`inline-block size-6 align-middle ${has_dark_bg ? 'fill-foreground' : 'fill-background'}`}
 					/>
 				</Button>
 			</div>
@@ -118,15 +128,16 @@
 					{@const Logo = social.icon}
 					<Link aria-label={social.label} href={social.href} target='_blank'>
 						<Logo
-							class={`size-7 ${passed_hero ? 'fill-foreground' : 'fill-background'} transition-colors group-focus-within:fill-accent group-hover:fill-accent`}
+							class={`size-7 ${has_dark_bg ? 'fill-foreground' : 'fill-background'} transition-colors group-focus-within:fill-accent group-hover:fill-accent`}
 						/>
 					</Link>
 				{/each}
 			</div>
 			<Button
-				class={passed_hero
-					? 'focus-within:ring-offset-background hover:ring-offset-background'
-					: 'focus-within:ring-offset-primary hover:ring-offset-primary'}
+				class={has_dark_bg
+					? 'focus-within:ring-offset-primary hover:ring-offset-primary'
+					: 'focus-within:ring-offset-background hover:ring-offset-background'}
+				href='#contacto'
 				variant='accent'
 			>
 				Contáctanos
@@ -137,7 +148,7 @@
 	<!-- Mobile -->
 	{#if open_menu}
 		<nav
-			class={`mx-auto flex h-[calc(100dvh-var(--header-height))] max-w-(--content-width) flex-col gap-y-16 p-(--content-x-spacing) ${passed_hero ? 'bg-background/30' : 'bg-primary/30'}`}
+			class={`mx-auto flex h-[calc(100dvh-var(--header-height))] max-w-(--content-width) flex-col gap-y-16 p-(--content-x-spacing) ${has_dark_bg ? 'bg-background/30' : 'bg-primary/30'}`}
 			transition:fade={{ duration: 300 }}
 		>
 			{#if items}
@@ -147,7 +158,7 @@
 					{#each items as item (item.label)}
 						<li class='w-full'>
 							<Link
-								class={`w-full content-center border-b ${passed_hero ? 'border-b-foreground text-muted focus-within:border-b-foreground focus-within:text-foreground hover:border-b-foreground hover:text-foreground' : 'border-b-muted-foreground text-muted-foreground focus-within:border-b-background focus-within:text-background hover:border-b-background hover:text-background'} px-4 py-2.5 no-underline!`}
+								class={`w-full content-center border-b ${has_dark_bg ? 'border-b-foreground text-muted focus-within:border-b-foreground focus-within:text-foreground hover:border-b-foreground hover:text-foreground' : 'border-b-muted-foreground text-muted-foreground focus-within:border-b-background focus-within:text-background hover:border-b-background hover:text-background'} px-4 py-2.5 no-underline!`}
 								href={item.href}
 								onclick={() => (open_menu = false)}
 							>
@@ -167,7 +178,7 @@
 						target='_blank'
 					>
 						<Logo
-							class={`size-7 ${passed_hero ? 'fill-foreground' : 'fill-background'} transition-colors group-focus-within:fill-accent group-hover:fill-accent`}
+							class={`size-7 ${has_dark_bg ? 'fill-foreground' : 'fill-background'} transition-colors group-focus-within:fill-accent group-hover:fill-accent`}
 						/>
 					</Link>
 				{/each}
