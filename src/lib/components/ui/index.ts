@@ -1,9 +1,16 @@
 export { Card } from './card';
 export { Link } from './link';
+export { Input } from './input';
+export { Label } from './label';
+export { Error } from './error';
 export { Navbar } from './navbar';
 export { Footer } from './footer';
 export { Button } from './button';
+export { Select } from './select';
+export { Textarea } from './textarea';
+export { Confetti } from './confetti';
 export { IconBadge } from './icon-badge';
+export { FormGroup } from './form-group';
 export { LogoSlider } from './logo-slider';
 export { Collapsible } from './collapsible';
 export { FeatureItem } from './feature-item';
