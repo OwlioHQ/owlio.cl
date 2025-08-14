@@ -1,4 +1,6 @@
-import { Alien, Code, Crosshair, EnvelopeSimple, FacebookLogo, InstagramLogo, Key, LinkedinLogo, NumberOne, NumberThree, NumberTwo, PiggyBank, Plugs, Robot, RocketLaunch, TrendUp, XLogo } from '$lib/components/icons';
+import type { SelectOptions } from './types';
+
+import { Alien, Code, Crosshair, EnvelopeSimple, FacebookLogo, InstagramLogo, Key, LinkedinLogo, NumberOne, NumberThree, NumberTwo, PiggyBank, Plugs, Robot, RocketLaunch, Sparkle, TrendUp, XLogo } from '$lib/components/icons';
 
 export const socials = [
 	{
@@ -24,7 +26,7 @@ export const socials = [
 	{
 		label: 'Linkedin',
 		icon: LinkedinLogo,
-		href: 'https://www.linkedin.com/company/owlio-cl',
+		href: 'https://www.linkedin.com/company/owliocompany',
 	},
 ];
 
@@ -45,7 +47,7 @@ export const hero_card_items = [
 		image: Crosshair,
 		title: 'Elimina el error humano',
 		description:
-				'Automatiza tus procesos, garantizando resultados consistentes entre operaciones.',
+				'Automatiza tus procesos, garantizando resultados consistentes entre tus operaciones.',
 	},
 	{
 		image: TrendUp,
@@ -159,5 +161,57 @@ export const questions = [
 		title: '¿Cómo aseguramos calidad y seguridad en el código?',
 		description:
 				'Aplicamos revisiones estrictas, CI/CD automatizado, linters, pruebas unitarias y escaneos de seguridad en cada etapa del desarrollo. Todo el código sigue estándares robustos y auditables.',
+	},
+];
+
+export const contact_items = [
+	{
+		title: 'Consulta gratuita',
+		description:
+				'Evaluamos tu negocio y te ofrecemos soluciones personalizadas.',
+		icon: {
+			component: Sparkle,
+			background: 'bg-accent/10',
+			stroke: 'fill-accent',
+		},
+	},
+	{
+		title: 'Implementación rápida',
+		description:
+				'Resultados visibiles en semanas, no en meses.',
+		icon: {
+			component: Sparkle,
+			background: 'bg-accent/10',
+			stroke: 'fill-accent',
+		},
+	},
+	{
+		title: 'Soporte continuo',
+		description:
+				'Te acompañamos en todo el proceso de transformación digital.',
+		icon: {
+			component: Sparkle,
+			background: 'bg-accent/10',
+			stroke: 'fill-accent',
+		},
+	},
+];
+
+export const company_size_options: SelectOptions = [
+	{
+		label: 'Entre 0 y 10 trabajadores',
+		value: '0 - 10',
+	},
+	{
+		label: 'Entre 10 y 50 trabajadores',
+		value: '10 - 50',
+	},
+	{
+		label: 'Entre 50 y 100 trabajadores',
+		value: '50 - 100',
+	},
+	{
+		label: 'Más de 100 trabajadores',
+		value: '100+',
 	},
 ];
