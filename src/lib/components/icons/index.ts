@@ -6,6 +6,7 @@ export { default as Alien } from 'phosphor-svelte/lib/Alien';
 export { default as Plugs } from 'phosphor-svelte/lib/Plugs';
 export { default as Robot } from 'phosphor-svelte/lib/Robot';
 export { default as TrendUp } from 'phosphor-svelte/lib/TrendUp';
+export { default as Sparkle } from 'phosphor-svelte/lib/Sparkle';
 export { default as PiggyBank } from 'phosphor-svelte/lib/PiggyBank';
 export { default as Crosshair } from 'phosphor-svelte/lib/Crosshair';
 export { default as NumberOne } from 'phosphor-svelte/lib/NumberOne';
