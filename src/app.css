@@ -1,7 +1,5 @@
 @import 'tailwindcss';
-
 @plugin '@tailwindcss/forms';
-@plugin '@tailwindcss/typography';
 
 @import '@fontsource/ubuntu/300.css';
 @import '@fontsource/ubuntu/400.css';
@@ -9,67 +7,77 @@
 @import '@fontsource/ubuntu/700.css';
 
 @theme {
-	--primary-hue: 40;
-	--secondary-hue: 265;
-	--padding: 88rem;
-
-	/* spacing */
-	--header-height: 4.25rem;
-	--section-padding-y: 8rem;
-	--section-padding-x: max(1.5rem, calc(calc(100vw - var(--padding))) / 2);
-
-	/* ui elements */
-	--color-separator: var(--color-zinc-200);
-
-	/* main color scheme */
-	--color-text-primary: var(--color-black);
-	--color-text-secondary: var(--color-zinc-600);
-	--color-background-primary: var(--color-zinc-50);
-	--color-background-secondary: var(--color-zinc-300);
-
-	--color-primary-50: oklch(96.94% 0.017 var(--primary-hue));
-	--color-primary-100: oklch(93.91% 0.035 var(--primary-hue));
-	--color-primary-200: oklch(87.19% 0.077 var(--primary-hue));
-	--color-primary-300: oklch(81.72% 0.114 var(--primary-hue));
-	--color-primary-400: oklch(76.54% 0.151 var(--primary-hue));
-	--color-primary-500: oklch(71.88% 0.186 var(--primary-hue));
-	--color-primary-600: oklch(65.18% 0.203 var(--primary-hue));
-	--color-primary-700: oklch(52.54% 0.162 var(--primary-hue));
-	--color-primary-800: oklch(38.92% 0.116 var(--primary-hue));
-	--color-primary-900: oklch(25.68% 0.07 var(--primary-hue));
-	--color-primary-950: oklch(17.79% 0.043 var(--primary-hue));
-
-	--color-secondary-50: oklch(95.65% 0.021 var(--secondary-hue));
-	--color-secondary-100: oklch(91.42% 0.041 var(--secondary-hue));
-	--color-secondary-200: oklch(82.94% 0.084 var(--secondary-hue));
-	--color-secondary-300: oklch(74.35% 0.131 var(--secondary-hue));
-	--color-secondary-400: oklch(65.84% 0.183 var(--secondary-hue));
-	--color-secondary-500: oklch(57.36% 0.188 var(--secondary-hue));
-	--color-secondary-600: oklch(48.54% 0.159 var(--secondary-hue));
-	--color-secondary-700: oklch(40.01% 0.131 var(--secondary-hue));
-	--color-secondary-800: oklch(31.33% 0.102 var(--secondary-hue));
-	--color-secondary-900: oklch(22.53% 0.074 var(--secondary-hue));
-	--color-secondary-950: oklch(17.56% 0.058 var(--secondary-hue));
+    --color-background: oklch(95% 0 0);
+    --color-foreground: oklch(0% 0 0);
+    --color-primary: oklch(18% 0.0604 257);
+    --color-primary-foreground: oklch(95% 0 0);
+    --color-secondary: oklch(36% 0.144 279);
+    --color-secondary-foreground: oklch(95% 0 0);
+    --color-accent: oklch(65% 0.203 40);
+    --color-accent-foreground: oklch(95% 0 0);
+    --color-muted: oklch(50% 0 255);
+    --color-muted-foreground: oklch(93% 0 0);
+    --color-destructive: oklch(55% 0.22 25);
+    --color-destructive-foreground: oklch(95% 0 0);
 }
 
-html {
-	color-scheme: light dark;
-	text-rendering: optimizeLegibility;
-	font-smooth: always;
-}
+:root {
+	--header-height: 4rem;
+	--content-width: 84rem;
+	--content-x-spacing: 1.5rem;
+	--content-y-spacing: 12rem;
 
-html,
-body {
-	height: 100%;
-}
-
-
-body {
-	font-family: 'Ubuntu', sans-serif;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-	:has(:target) {
-		scroll-behavior: smooth;
+	@media (max-width: 768px) {
+		--header-height: 3.5rem;
+		--content-y-spacing: 6rem;
 	}
 }
+
+@layer components {
+	html {
+		text-rendering: optimizeLegibility;
+		font-smooth: always;
+	}
+
+	html,
+	body {
+		height: 100%;
+	}
+
+	body {
+		font-family: 'Ubuntu', sans-serif;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		:has(:target) {
+			scroll-behavior: smooth;
+		}
+	}
+
+	@keyframes scroll-up {
+		from {
+			transform: translateY(0);
+		}
+		to {
+			transform: translateY(-50%);
+		}
+	}
+
+	@keyframes scroll-down {
+		from {
+			transform: translateY(-50%);
+		}
+		to {
+			transform: translateY(0);
+		}
+	}
+
+	.animate-up {
+		animation: scroll-up 15s linear infinite;
+	}
+
+	.animate-down {
+		animation: scroll-down 15s linear infinite;
+	}
+}
+

@@ -1,16 +1,14 @@
 <script lang='ts'>
 	import type { NavItem } from '$lib/types';
 
-	import List from 'phosphor-svelte/lib/List';
-	import XLogo from 'phosphor-svelte/lib/XLogo';
-	import FacebookLogo from 'phosphor-svelte/lib/FacebookLogo';
-	import LinkedinLogo from 'phosphor-svelte/lib/LinkedinLogo';
 	import OwlioLogo from '$lib/assets/images/owlio.png?enhanced';
-	import InstagramLogo from 'phosphor-svelte/lib/InstagramLogo';
-	import EnvelopeSimple from 'phosphor-svelte/lib/EnvelopeSimple';
 
-	import { slide } from 'svelte/transition';
+	import { socials } from '$lib/constants';
+	import { fade } from 'svelte/transition';
+	import { List } from '$lib/components/icons';
+	import { MediaQuery } from 'svelte/reactivity';
 
+	import { Link } from '../link';
 	import { Button } from '../button';
 
 	interface Props {
@@ -20,143 +18,171 @@
 	let { items }: Props = $props();
 
 	let open_menu = $state<boolean>(false);
-	let passed_hero = $state<boolean>(false);
-
-	const socials = [
-		{
-			label: 'Mail',
-			icon: EnvelopeSimple,
-			href: 'mailto:owlio.contacto@gmail.com',
-		},
-		{
-			label: 'X',
-			icon: XLogo,
-			href: 'https://x.com/owlio_cl',
-		},
-		{
-			label: 'Instagram',
-			icon: InstagramLogo,
-			href: 'https://www.instagram.com/owlio_cl/?hl=es',
-		},
-		{
-			label: 'Facebook',
-			icon: FacebookLogo,
-			href: 'https://web.facebook.com/profile.php?id=61578924622725',
-		},
-		{
-			label: 'Linkedin',
-			icon: LinkedinLogo,
-			href: 'https://www.linkedin.com/company/owlio-cl',
-		},
-	];
+	let has_dark_bg = $state<boolean>(false);
+	let is_lg_screen = new MediaQuery('min-width: 1280px');
 
 	$effect(() => {
 		observe_hero();
 	});
 
-	function observe_hero() {
-		const target = document.getElementById('inicio');
+	$effect(() => {
+		open_menu = !is_lg_screen.current && open_menu;
+	});
 
-		if (!target)
+	function observe_hero() {
+		const to_observe = ['inicio'];
+		const targets = to_observe
+			.map(id => document.getElementById(id))
+			.filter((el): el is HTMLElement => el !== null);
+
+		if (!targets)
 			return;
 
-		const observer = new IntersectionObserver(
-			([entry]) => {
-				passed_hero = !entry.isIntersecting;
-			},
-			{
-				root: null,
-				threshold: 0.03,
-			},
-		);
+		const observers: IntersectionObserver[] = [];
 
-		observer.observe(target);
+		for (const target of targets) {
+			const observer = new IntersectionObserver(
+				([entry]) => {
+					has_dark_bg = !entry.isIntersecting;
+				},
+				{
+					root: null,
+					threshold: 0.03,
+				},
+			);
+
+			observer.observe(target);
+			observers.push(observer);
+		}
 
 		return {
 			destroy() {
-				observer.disconnect();
+				for (const observer of observers) {
+					observer.disconnect();
+				}
 			},
 		};
 	}
 </script>
 
 <header
-	class={`fixed top-0 z-50 w-full shadow backdrop-blur-2xl ${passed_hero ? 'bg-white/40 text-text-primary' : 'bg-gradient-to-r from-indigo-950/20 to-secondary-950/20 text-background-primary/90'}`}
+	class={`fixed top-0 z-50 w-full shadow backdrop-blur-2xl ${has_dark_bg ? 'bg-background/40' : 'bg-gradient-to-r from-secondary/20 to-primary/20 text-background'}`}
 >
-	<div class='relative px-[var(--section-padding-x)]'>
-		<nav class={`flex h-[var(--header-height)] justify-between gap-x-16 ${open_menu ? 'border-b border-separator' : ''}`}>
-			<div class='flex w-full items-center justify-between gap-6 lg:justify-start'>
-				<div class='pr-10'>
-					<a class='flex items-center gap-2' href='/'>
+	<nav
+		class={`relative mx-auto flex h-(--header-height) max-w-(--content-width) justify-between gap-x-16 px-(--content-x-spacing) ${
+			open_menu ? 'border-b border-b-muted-foreground' : ''
+		}`}
+	>
+		<div
+			class='flex w-full items-center justify-between gap-x-12 xl:justify-start'
+		>
+			<!-- Logo -->
+			<Link
+				class='flex items-center gap-x-2 no-underline!'
+				href='/'
+			>
+				<enhanced:img
+					class={`w-4 object-contain ${has_dark_bg ? 'invert-0' : 'invert-100'}`}
+					alt='Owlio logo'
+					src={OwlioLogo}
+				/>
+				<span class='text-xl font-bold tracking-widest uppercase'>
+					Owlio
+				</span>
+			</Link>
 
-						<div class='flex items-center gap-x-2'>
-							<enhanced:img class={`w-4 object-contain ${passed_hero ? 'invert-0' : 'invert-100'}`} alt='Owlio logo' src={OwlioLogo} />
-							<span
-								class='text-xl font-bold tracking-widest uppercase'
-							>
-								Owl<span class='font-light'>io</span>
-							</span>
-
-						</div>
-					</a>
-				</div>
-				<div class='hidden items-center pl-4 lg:flex'>
-					{#if items}
-						<ul
-							class='flex items-center gap-x-8 font-medium capitalize'
-						>
-							{#each items as item (item.label)}
-								<li>
-									<a
-										class='block cursor-pointer p-1 whitespace-nowrap'
-										href={item.href}
-									>
-										{item.label}
-									</a>
-								</li>
-							{/each}
-						</ul>
-					{/if}
-				</div>
-				<div class='lg:hidden'>
-
-					<button class='cursor-pointer rounded-md p-1' onclick={() => open_menu = !open_menu} type='button'>
-						<List class='size-6 align-middle' />
-					</button>
-				</div>
-			</div>
-
-			<div class='hidden items-center gap-x-8 lg:flex'>
-				<div class='lg:flex lg:items-center lg:gap-x-2'>
-					{#each socials as social}
-						{@const Logo = social.icon}
-						<a class='block p-0.5' aria-label={social.label} href={social.href} referrerpolicy='no-referrer' target='_blank'>
-							<Logo class='size-7 transition-colors focus-within:fill-primary-500 hover:fill-primary-500' />
-						</a>
+			<!-- Desktop -->
+			{#if items}
+				<ul
+					class='hidden items-center gap-x-8 font-medium capitalize xl:flex'
+				>
+					{#each items as item (item.label)}
+						<li>
+							<Link href={item.href}>
+								{item.label}
+							</Link>
+						</li>
 					{/each}
-				</div>
-				<Button href='https://calendar.app.google/M7mnJfaFNC1N9Au3A' referrerpolicy='no-referrer' target='_blank'>Contáctanos</Button>
+				</ul>
+			{/if}
+
+			<!-- Mobile -->
+			<div class='block xl:hidden'>
+				<Button
+					class='rounded-md'
+					onclick={() => (open_menu = !open_menu)}
+					size='icon'
+					variant='ghost'
+				>
+					<List
+						class={`inline-block size-6 align-middle ${has_dark_bg ? 'fill-foreground' : 'fill-background'}`}
+					/>
+				</Button>
+			</div>
+		</div>
+
+		<!-- Desktop -->
+		<div class='hidden items-center gap-x-8 xl:flex'>
+			<div class='xl:flex xl:items-center xl:gap-x-2'>
+				{#each socials as social}
+					{@const Logo = social.icon}
+					<Link aria-label={social.label} href={social.href} target='_blank'>
+						<Logo
+							class={`size-7 ${has_dark_bg ? 'fill-foreground' : 'fill-background'} transition-colors group-focus-within:fill-accent group-hover:fill-accent`}
+						/>
+					</Link>
+				{/each}
+			</div>
+			<Button
+				class={has_dark_bg
+					? 'focus-within:ring-offset-primary hover:ring-offset-primary'
+					: 'focus-within:ring-offset-background hover:ring-offset-background'}
+				href='#contacto'
+				variant='accent'
+			>
+				Contáctanos
+			</Button>
+		</div>
+	</nav>
+
+	<!-- Mobile -->
+	{#if open_menu}
+		<nav
+			class={`mx-auto flex h-[calc(100dvh-var(--header-height))] max-w-(--content-width) flex-col gap-y-16 p-(--content-x-spacing) ${has_dark_bg ? 'bg-background/30' : 'bg-primary/30'}`}
+			transition:fade={{ duration: 300 }}
+		>
+			{#if items}
+				<ul
+					class='flex flex-col items-center gap-x-8 font-medium text-muted-foreground capitalize'
+				>
+					{#each items as item (item.label)}
+						<li class='w-full'>
+							<Link
+								class={`w-full content-center border-b ${has_dark_bg ? 'border-b-foreground text-muted focus-within:border-b-foreground focus-within:text-foreground hover:border-b-foreground hover:text-foreground' : 'border-b-muted-foreground text-muted-foreground focus-within:border-b-background focus-within:text-background hover:border-b-background hover:text-background'} px-4 py-2.5 no-underline!`}
+								href={item.href}
+								onclick={() => (open_menu = false)}
+							>
+								{item.label}
+							</Link>
+						</li>
+					{/each}
+				</ul>
+			{/if}
+
+			<div class='flex items-center justify-center gap-x-3'>
+				{#each socials as social}
+					{@const Logo = social.icon}
+					<Link
+						aria-label={social.label}
+						href={social.href}
+						target='_blank'
+					>
+						<Logo
+							class={`size-7 ${has_dark_bg ? 'fill-foreground' : 'fill-background'} transition-colors group-focus-within:fill-accent group-hover:fill-accent`}
+						/>
+					</Link>
+				{/each}
 			</div>
 		</nav>
-
-		{#if open_menu}
-			<nav class='h-[calc(100vh-var(--header-height))] py-8' transition:slide={{ axis: 'y' }}>
-				{#if items}
-					<ul
-						class='flex flex-col items-center gap-x-8 font-medium capitalize'
-					>
-						{#each items as item (item.label)}
-							<li class='w-full text-left'>
-								<a
-									class='block h-12 cursor-pointer p-1 whitespace-nowrap'
-									href={item.href}
-									onclick={() => open_menu = false}>{item.label}</a
-								>
-							</li>
-						{/each}
-					</ul>
-				{/if}
-			</nav>
-		{/if}
-	</div>
+	{/if}
 </header>

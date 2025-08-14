@@ -14,6 +14,9 @@ const config = {
 			edge: false,
 			split: false,
 		}),
+		experimental: {
+			remoteFunctions: true,
+		},
 	},
 	compilerOptions: {
 		hmr: is_dev,

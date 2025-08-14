@@ -1,39 +1,51 @@
 <script lang='ts'>
 	import type { Snippet } from 'svelte';
-	import type { HTMLAnchorAttributes, HTMLButtonAttributes } from 'svelte/elements';
+	import type { ButtonOptions } from './props';
+	import type {
+		HTMLAnchorAttributes,
+		HTMLButtonAttributes,
+	} from 'svelte/elements';
 
 	import { cn } from '$lib/utils';
 
-	import { base_style } from './props';
+	import { base_style, sizes, variants } from './props';
 
-	type ButtonOrLinkProps = | (HTMLButtonAttributes & { href?: never }) | (HTMLAnchorAttributes & { href: string });
+	type ButtonOrLinkProps
+		= | (HTMLButtonAttributes & { href?: never })
+			| (HTMLAnchorAttributes & { href: string });
 
-	type Props = {
-		children: Snippet;
-	} & ButtonOrLinkProps;
+	type Props = ButtonOrLinkProps
+		& ButtonOptions & {
+			children: Snippet;
+		};
 
-	const { children, class: class_name, ...props }: Props = $props();
+	let {
+		children,
+		size = 'md',
+		variant = 'primary',
+		class: class_name,
+		...rest
+	}: Props = $props();
+
+	const merged_classes = cn(
+		base_style,
+		variants[variant],
+		sizes[size],
+		class_name,
+	);
 </script>
 
-{#if 'href' in props && props.href !== undefined && props.href !== null}
+{#if 'href' in rest && rest.href !== undefined && rest.href !== null}
 	<a
-		class={cn(
-			base_style,
-			class_name,
-		)}
-		{...props}
+		class={merged_classes}
+		referrerpolicy='no-referrer'
+		target='_self'
+		{...rest}
 	>
 		{@render children()}
 	</a>
 {:else}
-	<button
-		class={cn(
-			base_style,
-			class_name,
-		)}
-		type='button'
-		{...props}
-	>
+	<button class={merged_classes} type='button' {...rest}>
 		{@render children()}
 	</button>
 {/if}
