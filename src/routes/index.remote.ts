@@ -4,11 +4,11 @@ import { validate_form } from '$lib/utils';
 import { contact_schema } from '$lib/schemas';
 
 export const send_contact_data = form(validate_form(contact_schema, async (data) => {
-	const response = await fetch(env.N8N_URL, {
+	const response = await fetch(env.N8N_URL!, {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
-			'key': env.N8N_AUTH,
+			'key': env.N8N_AUTH!,
 		},
 		body: JSON.stringify(data),
 	});

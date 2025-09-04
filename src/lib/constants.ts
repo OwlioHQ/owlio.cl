@@ -59,7 +59,7 @@ export const hero_card_items = [
 
 export const features = [
 	{
-		title: 'Integraciones de software',
+		title: 'Integración de Sistemas y APIs',
 		description:
 				'Integramos tus sistemas y aplicaciones para que funcionen sincronizados, facilitando el flujo de datos clave. Nuestras soluciones escalables aumentan la productividad, reducen errores y aceleran la toma de decisiones.',
 		icon: {
@@ -79,7 +79,7 @@ export const features = [
 		},
 	},
 	{
-		title: 'Desarrollo de aplicaciones web',
+		title: 'Aplicaciones Web Empresariales',
 		description:
 				'Creamos soluciones web a medida que se adaptan a las necesidades específicas de tu negocio, con un diseño intuitivo, alto rendimiento y escalabilidad. Desde sitios corporativos hasta aplicaciones complejas.',
 		icon: {
