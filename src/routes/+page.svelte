@@ -252,7 +252,7 @@
 	<div class='mx-auto max-w-(--content-width) space-y-10 rounded-2xl bg-pattern-weird px-(--content-x-spacing) py-16 text-center shadow md:gap-y-16'>
 		<div class='space-y-5'>
 			<h2 class='text-3xl font-bold text-white'>Escala tu empresa este mes</h2>
-			<p class='text-white italic'>"Asesoría gratuita de 30 min para identificar tus oportunidades de crecimiento más rentables para tu negocio"</p>
+			<p class='text-white italic'>"Asesoría gratuita de 1 hora para identificar tus oportunidades de crecimiento más rentables para tu negocio"</p>
 		</div>
 		<Button
 			class='w-full focus-within:ring-offset-primary hover:ring-offset-primary md:mx-auto md:w-fit'
