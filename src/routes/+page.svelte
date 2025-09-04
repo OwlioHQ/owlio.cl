@@ -73,15 +73,12 @@
 				<h1
 					class='text-3xl leading-snug font-bold text-background md:text-4xl lg:text-5xl xl:text-6xl'
 				>
-					Automatiza tus procesos y moderniza tu negocio con
-					soluciones a tu medida
+					Desarrollo de Software Personalizado que Impulsa tu Negocio
 				</h1>
 				<p
 					class='mx-auto text-lg text-muted-foreground md:w-4/5 md:text-xl xl:text-2xl'
 				>
-					Desde la estrategia hasta la implementación, ofrecemos
-					soluciones prácticas en desarrollo y automatización que
-					generan resultados positivos en tu empresa.
+					Transformamos tus ideas en soluciones tecnológicas robustas. Desde aplicaciones web hasta sistemas empresariales completos.
 				</p>
 			</hgroup>
 			<Button
@@ -90,7 +87,7 @@
 				size='lg'
 				variant='accent'
 			>
-				<span class='text-lg md:text-xl'>Contáctanos</span>
+				<span class='text-lg md:text-xl'>Agenda una consulta gratuita</span>
 				<ArrowRight class='inline-block size-6 align-middle' />
 			</Button>
 		</div>
