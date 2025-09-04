@@ -5,8 +5,8 @@
 	import { Toaster, toast } from 'svelte-sonner';
 	import { ArrowRight } from '$lib/components/icons';
 	import {
-		company_size_options,
-		contact_items,
+		// company_size_options,
+		// contact_items,
 		features,
 		hero_card_items,
 		questions,
@@ -17,14 +17,14 @@
 		AccordionGroup,
 		Button,
 		Card,
-		Error,
+		// Error,
 		FeatureItem,
-		FormGroup,
-		Input,
-		Label,
+		// FormGroup,
+		// Input,
+		// Label,
 		LogoSlider,
-		Select,
-		Textarea,
+		// Select,
+		// Textarea,
 		Confetti,
 	} from '$lib/components/ui';
 
@@ -87,7 +87,7 @@
 				size='lg'
 				variant='accent'
 			>
-				<span class='text-lg md:text-xl'>Agenda una consulta gratuita</span>
+				<span class='text-lg md:text-xl'>Contáctanos</span>
 				<ArrowRight class='inline-block size-6 align-middle' />
 			</Button>
 		</div>
@@ -247,8 +247,27 @@
 	</div>
 </section>
 
+<section id='contacto' class='relative isolate'>
+
+	<div class='mx-auto max-w-(--content-width) space-y-10 rounded-2xl bg-pattern-weird px-(--content-x-spacing) py-16 text-center shadow md:gap-y-16'>
+		<div class='space-y-5'>
+			<h2 class='text-3xl font-bold text-white'>Escala tu empresa este mes</h2>
+			<p class='text-white italic'>"Asesoría gratuita de 30 min para identificar tus oportunidades de crecimiento más rentables para tu negocio"</p>
+		</div>
+		<Button
+			class='w-full focus-within:ring-offset-primary hover:ring-offset-primary md:mx-auto md:w-fit'
+			href='https://calendar.app.google/UhGVMtD8NBeg4sDw7'
+			size='md'
+			variant='accent'
+		>
+			<span class='text-2xl md:text-xl'>Reservar mi sesión gratuita</span>
+			<ArrowRight class='inline-block size-6 align-middle' />
+		</Button>
+	</div>
+</section>
+
 <!-- Contacto -->
-<section id='contacto' class='relative isolate scroll-m-16 xl:scroll-m-22'>
+<!-- <section id='contacto' class='relative isolate scroll-m-16 xl:scroll-m-22'>
 	<div
 		class='mx-auto max-w-(--content-width) space-y-8 px-(--content-x-spacing) py-10 md:space-y-16 md:gap-y-16 lg:py-16 xl:py-26'
 	>
@@ -356,3 +375,4 @@
 		</div>
 	</div>
 </section>
+ -->
