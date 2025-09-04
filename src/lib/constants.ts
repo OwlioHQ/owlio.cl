@@ -16,7 +16,7 @@ export const socials = [
 	{
 		label: 'Instagram',
 		icon: InstagramLogo,
-		href: 'https://www.instagram.com/owlio_cl/?hl=es',
+		href: 'https://www.instagram.com/owliocl/?hl=es',
 	},
 	{
 		label: 'Facebook',
